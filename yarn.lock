@@ -771,9 +771,9 @@
     thumbhash "0.1.1"
 
 "@splinetool/runtime@^1.9.3":
-  version "1.9.21"
-  resolved "https://registry.npmjs.org/@splinetool/runtime/-/runtime-1.9.21.tgz"
-  integrity sha512-kjpexZUlJ4bCEvYd4ddvuKEnNA3iozVk6cZJ8xUOnvgG4nZ1XcuJ3LbT24bwbfCDL7/e+aLDkN+r3YrzOv/lIQ==
+  version "1.9.3"
+  resolved "https://registry.npmjs.org/@splinetool/runtime/-/runtime-1.9.3.tgz"
+  integrity sha512-wcSxsRUpZRzPqX3/4UHlN5H1hOBoBiut9VRr8f7KG6d/joDahLP2MnWF8/7eoOuWAA+DC08hQhfdl9b45PFlIA==
   dependencies:
     on-change "^4.0.0"
     semver-compare "^1.0.0"
@@ -3857,6 +3857,20 @@ pirates@^4.0.1:
   version "4.0.6"
   resolved "https://registry.npmjs.org/pirates/-/pirates-4.0.6.tgz"
   integrity sha512-saLsH7WeYYPiD25LDuLRRY/i+6HaPYr6G1OUlN39otzkSTxKnubR9RTxS3/Kk50s1g2JTgFwWQDQyplC5/SHZg==
+
+playwright-core@1.61.1:
+  version "1.61.1"
+  resolved "https://registry.npmjs.org/playwright-core/-/playwright-core-1.61.1.tgz"
+  integrity sha512-h7Qlt6m4REp25qvIdvbDtVmD4LqVXfpRxhORv9L0jzETM05p4fuPJ3dKyuSXQxDSbXnmS79HAgi9589lGSpLkg==
+
+playwright@*:
+  version "1.61.1"
+  resolved "https://registry.npmjs.org/playwright/-/playwright-1.61.1.tgz"
+  integrity sha512-DWnY5o3YbLWK4GovuAVwpqL+1VwGNdUGrRr++8j8PtQQzvAVZUIMjKQ90fY689sEJZJBbZVw1rXaOKSTitkzPQ==
+  dependencies:
+    playwright-core "1.61.1"
+  optionalDependencies:
+    fsevents "2.3.2"
 
 possible-typed-array-names@^1.0.0, possible-typed-array-names@^1.1.0:
   version "1.1.0"

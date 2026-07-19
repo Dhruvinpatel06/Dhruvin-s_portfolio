@@ -115,6 +115,8 @@ const PROJECT_SKILLS = {
   sockerio: brand("Socket.io", "socketdotio-mono.svg"),
   js: brand("JavaScript", "javascript-mono.svg"),
   ts: brand("TypeScript", "typescript-mono.svg"),
+  html5: brand("HTML5", "html5-mono.svg"),
+  css3: brand("CSS3", "css3-mono.svg"),
   vue: brand("Vue.js", "vuedotjs-mono.svg"),
   react: brand("React.js", "react-mono.svg"),
   sanity: brand("Sanity", "sanity-mono.svg"),
@@ -199,95 +201,50 @@ export type Project = {
 };
 const projects: Project[] = [
   {
-    id: "storekit",
-    category: "Commerce platform",
-    title: "StoreKit",
-    src: "/assets/projects-screenshots/storekit/landing.png",
+    id: "f1universe",
+    category: "Interactive Formula 1 Web Experience",
+    title: "F1 Universe",
+    src: "/assets/projects-screenshots/f1universe/landing.png",
     screenshots: ["landing.png"],
     skills: {
       frontend: [
-        PROJECT_SKILLS.ts,
-        PROJECT_SKILLS.next,
-        PROJECT_SKILLS.react,
-        PROJECT_SKILLS.reactNative,
-        PROJECT_SKILLS.tailwind,
+        PROJECT_SKILLS.html5,
+        PROJECT_SKILLS.css3,
+        PROJECT_SKILLS.js,
       ],
-      backend: [
-        PROJECT_SKILLS.hono,
-        PROJECT_SKILLS.trpc,
-        PROJECT_SKILLS.drizzle,
-        PROJECT_SKILLS.postgres,
-        PROJECT_SKILLS.redis,
-        PROJECT_SKILLS.betterAuth,
-        PROJECT_SKILLS.cloudflare,
-        PROJECT_SKILLS.docker,
-      ],
+      backend: [],
     },
-    live: "https://storekit.app/",
-    // Private repo (commercial product) — intentionally no public source link
+    live: "https://dhruvinpatel06.github.io/F1_Universe/",
+    github: "https://github.com/Dhruvinpatel06/F1_Universe",
     get content() {
       return (
         <div>
           <TypographyP className="font-mono text-2xl text-center">
-            A production-grade, multi-tenant commerce platform — Shopify-class,
-            built solo.
+            A modern Formula 1 themed website delivering an immersive racing
+            experience through stunning visuals and engaging interactions.
           </TypographyP>
           <TypographyP className="font-mono ">
-            Architected and built end-to-end as a single engineer: a
-            pnpm/Turborepo monorepo spanning 6 applications and 11 shared
-            packages — merchant dashboard, customer storefront, headless REST
-            API, and two React Native apps (customer + POS) — with a shared
-            type-safe core (54-table Drizzle/Postgres schema, 33 tRPC v11
-            routers, end-to-end inference). ~238K lines of TypeScript powering 4
-            storefront verticals: e-commerce, food delivery, quick-commerce, and
-            digital goods.
+            F1 Universe is a modern and responsive web application inspired by
+            the excitement of Formula 1 racing. The project combines premium
+            UI/UX design with interactive animations and smooth navigation to
+            create an engaging experience for motorsport enthusiasts. Built with
+            a strong focus on performance and responsiveness, the website
+            showcases Formula 1 content in a visually appealing way while
+            demonstrating modern frontend development skills and creative design
+            principles.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
 
-          <TypographyH3 className="my-4 mt-8">Payments &amp; reliability</TypographyH3>
+          <TypographyH3 className="my-4 mt-8">Key Features</TypographyH3>
           <p className="font-mono mb-2">
-            A PhonePe payment integration with OAuth2 token exchange, Redis-cached
-            per-store tokens, and idempotency keys on orders/transactions/refunds
-            so checkout survives refreshes and duplicate webhooks without
-            double-charging. Payment credentials are encrypted at rest and webhook
-            signatures verified to prevent tampering, with a BullMQ/Redis async
-            layer (5 retries, exponential backoff) driving notifications and order
-            jobs — every webhook event logged for replay.
+            Modern Formula 1 inspired UI with a premium dark theme and red-black
+            color palette. Fully responsive across all devices — desktop, tablet,
+            and mobile. Smooth scrolling and animations with interactive sections
+            and navigation. Premium visual effects including speed motion,
+            racing lights, and futuristic dashboard elements. Clean and organized
+            code structure with optimized performance throughout.
           </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/storekit/orders.png`,
-              `${BASE_PATH}/storekit/login.png`,
-            ]}
-          />
-
-          <TypographyH3 className="my-4 mt-8">AI storefront generation</TypographyH3>
-          <p className="font-mono mb-2">
-            <em>In progress.</em> An agentic generator where an LLM writes real
-            storefront code inside isolated container sandboxes, gated by a
-            type-check + lint pass so broken code never lands — then deploys each
-            store programmatically as its own Cloudflare Worker through a
-            queue-driven pipeline, with a fleet health monitor that auto-rolls-back
-            failing deployments within minutes.
-          </p>
-
-          <TypographyH3 className="my-4 mt-8">Domain modeling &amp; breadth</TypographyH3>
-          <p className="font-mono mb-2">
-            An explicit order state-machine spans the 4 verticals with
-            illegal-transition guards, fronted by a typed event bus and a
-            per-store plugin registry for pluggable lifecycle behavior without
-            touching core code. The merchant dashboard ships a visual theme
-            builder, analytics, inventory, coupons, abandoned-cart recovery, and
-            Pixie — an in-product AI agent that manages the store via tool-calling
-            over live data. The POS app does Bluetooth ESC/POS thermal printing,
-            mDNS/TCP printer discovery, and barcode scanning.
-          </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/storekit/storefront.png`,
-              `${BASE_PATH}/storekit/themes.png`,
-            ]}
-          />
+          <SlideShow images={[`${BASE_PATH}/f1universe/landing.png`]} />
         </div>
       );
     },
