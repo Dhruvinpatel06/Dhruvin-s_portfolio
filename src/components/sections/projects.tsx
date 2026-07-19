@@ -19,6 +19,7 @@ import { SectionHeader } from "./section-header";
 
 import SectionWrapper from "../ui/section-wrapper";
 import ScrollingPreview from "../scrolling-preview";
+import SlideshowPreview from "../slideshow-preview";
 
 const ProjectsSection = () => {
   return (
@@ -43,12 +44,22 @@ const ProjectCard = ({ project }: { project: Project }) => {
             style={{ aspectRatio: "3/2" }}
           >
             {/* `src` can be any aspect ratio (tall pages pan, normal ones fit);
-                the wallpaper is an optional /assets/backgrounds/<id>.jpg. */}
-            <ScrollingPreview
-              src={project.src}
-              alt={project.title}
-              bg={`/assets/backgrounds/${project.id}.jpg`}
-            />
+                the wallpaper is an optional /assets/backgrounds/<id>.jpg.
+                Projects with `slideshowImages` use a crossfade slideshow instead. */}
+            {project.slideshowImages && project.slideshowImages.length > 1 ? (
+              <SlideshowPreview
+                images={project.slideshowImages}
+                alt={project.title}
+                interval={3200}
+                fadeDuration={1.0}
+              />
+            ) : (
+              <ScrollingPreview
+                src={project.src}
+                alt={project.title}
+                bg={`/assets/backgrounds/${project.id}.jpg`}
+              />
+            )}
             <div className="absolute w-full h-24 bottom-0 left-0 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none z-10">
               <div className="flex flex-col h-full items-start justify-end p-4">
                 <div className="text-lg text-left [text-shadow:0_1px_4px_rgba(0,0,0,0.6)]">

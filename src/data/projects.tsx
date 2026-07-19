@@ -208,6 +208,8 @@ export type Project = {
   title: string;
   src: string;
   screenshots: string[];
+  /** Optional: when provided, the card shows a crossfade slideshow instead of a single scrolling image */
+  slideshowImages?: string[];
   skills: { frontend: Skill[]; backend: Skill[] };
   content: React.ReactNode | any;
   github?: string;
@@ -267,8 +269,16 @@ const projects: Project[] = [
     id: "brandmirror",
     category: "AI-Powered Brand Intelligence Platform",
     title: "BrandMirror",
-    src: "/assets/projects-screenshots/brandmirror/landing.png",
-    screenshots: ["landing.png"],
+    src: "/assets/projects-screenshots/brandmirror/dashboard.jpg",
+    screenshots: ["dashboard.jpg", "hub.png", "sentiment.png", "analysis.png", "audit.png", "chatbot.png"],
+    slideshowImages: [
+      "/assets/projects-screenshots/brandmirror/dashboard.jpg",
+      "/assets/projects-screenshots/brandmirror/hub.png",
+      "/assets/projects-screenshots/brandmirror/sentiment.png",
+      "/assets/projects-screenshots/brandmirror/analysis.png",
+      "/assets/projects-screenshots/brandmirror/audit.png",
+      "/assets/projects-screenshots/brandmirror/chatbot.png",
+    ],
     skills: {
       frontend: [
         PROJECT_SKILLS.react,
@@ -334,7 +344,14 @@ const projects: Project[] = [
             memory architecture, and intelligent business insights powered by
             Groq and Qwen3-32B.
           </p>
-          <SlideShow images={[`${BASE_PATH}/brandmirror/landing.png`]} />
+          <SlideShow images={[
+            `${BASE_PATH}/brandmirror/dashboard.jpg`,
+            `${BASE_PATH}/brandmirror/hub.png`,
+            `${BASE_PATH}/brandmirror/sentiment.png`,
+            `${BASE_PATH}/brandmirror/analysis.png`,
+            `${BASE_PATH}/brandmirror/audit.png`,
+            `${BASE_PATH}/brandmirror/chatbot.png`,
+          ]} />
         </div>
       );
     },
