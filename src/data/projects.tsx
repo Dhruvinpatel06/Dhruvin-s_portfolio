@@ -187,6 +187,20 @@ const PROJECT_SKILLS = {
     fg: "white",
     icon: <span className="text-xs font-bold">MCP</span>,
   },
+  fastapi: brand("FastAPI", "fastapi-mono.svg"),
+  vite: brand("Vite", "vite-mono.svg"),
+  groq: {
+    title: "Groq",
+    bg: "black",
+    fg: "white",
+    icon: <span className="text-xs font-bold">Groq</span>,
+  },
+  recharts: {
+    title: "Recharts",
+    bg: "black",
+    fg: "white",
+    icon: <span className="text-xs font-bold">📊</span>,
+  },
 };
 export type Project = {
   id: string;
@@ -250,108 +264,77 @@ const projects: Project[] = [
     },
   },
   {
-    id: "codingducks",
-    category: "Real-time coding platform",
-    title: "Coding Ducks",
-    src: "/assets/projects-screenshots/codingducks/landing.png",
+    id: "brandmirror",
+    category: "AI-Powered Brand Intelligence Platform",
+    title: "BrandMirror",
+    src: "/assets/projects-screenshots/brandmirror/landing.png",
     screenshots: ["landing.png"],
     skills: {
       frontend: [
-        PROJECT_SKILLS.ts,
-        PROJECT_SKILLS.next,
         PROJECT_SKILLS.react,
-        PROJECT_SKILLS.tailwind,
-        PROJECT_SKILLS.codemirror,
-        PROJECT_SKILLS.reactFlow,
+        PROJECT_SKILLS.vite,
+        PROJECT_SKILLS.recharts,
       ],
       backend: [
-        PROJECT_SKILLS.node,
-        PROJECT_SKILLS.trpc,
-        PROJECT_SKILLS.drizzle,
-        PROJECT_SKILLS.postgres,
-        PROJECT_SKILLS.yjs,
-        PROJECT_SKILLS.hocuspocus,
-        PROJECT_SKILLS.betterAuth,
-        PROJECT_SKILLS.docker,
+        PROJECT_SKILLS.fastapi,
+        PROJECT_SKILLS.python,
+        PROJECT_SKILLS.groq,
       ],
     },
-    live: "https://www.codingducks.xyz/",
-    github: "https://github.com/Dhruvinpatel06/Coding-Ducks",
+    live: "https://www.linkedin.com/posts/dhruvin-patel-14a741310_ai-llm-fastapi-ugcPost-7469958589051453440-rMUK/",
+    github: "https://github.com/Dhruvinpatel06/BrandMirror",
     get content() {
       return (
         <div>
           <TypographyP className="font-mono text-2xl text-center">
-            A multi-language judge, a CRDT collaborative editor, and a
-            system-design simulation game — in one platform.
+            An AI-powered feedback intelligence platform that analyzes reviews,
+            tracks sentiment, and generates actionable insights using LLMs.
           </TypographyP>
           <TypographyP className="font-mono ">
-            Coding Ducks is a full-stack, real-time coding platform built as a
-            production-grade Turborepo monorepo (2 apps, 7 shared packages) in
-            strict TypeScript — Next.js 16 / React 19, a tRPC v11 type-safe API,
-            PostgreSQL + Drizzle ORM (18 tables), and a standalone real-time
-            Node service, with enforced one-way apps → packages dependency
-            boundaries.
+            BrandMirror was developed in just 10 hours during HackBaroda 2026.
+            Unlike traditional sentiment analysis tools that only provide a
+            snapshot of current feedback, BrandMirror stores historical insights
+            in persistent memory — enabling longitudinal analysis, trend
+            detection, competitor comparison, and root cause analysis over time.
+            The modular architecture allows independent replacement of AI models,
+            vector databases, and data sources without affecting the rest of the
+            system.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
 
           <TypographyH3 className="my-4 mt-8">
-            Ducklets — real-time collaborative editor
+            AI-Powered Sentiment Engine
           </TypographyH3>
           <p className="font-mono mb-2">
-            A multiplayer code editor built on Y.js CRDTs and a standalone
-            Hocuspocus WebSocket server — concurrent editing, live cursor
-            presence, and conflict-free merging persisted to Postgres as
-            versioned binary state. Secured by a custom HMAC-SHA256 signed-token
-            scheme (constant-time verification, 1-hour TTL) with owner / editor
-            / viewer RBAC re-verified live against the DB so permission
-            revocation takes effect mid-session. Includes room forking,
-            point-in-time snapshots, idempotent chat, and throttled live
-            previews (Puppeteer + Cloudflare R2, coalesced to ≤1 render/60s).
+            The platform automatically collects reviews from multiple public
+            sources, analyzes them using Groq-powered Qwen3-32B large language
+            models, and generates structured sentiment insights. Persistent
+            Hindsight Vector Memory stores every analysis for future comparisons,
+            enabling brand health tracking over weeks and months rather than
+            one-off snapshots.
           </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/codingducks/ducklets-editor.png`,
-              `${BASE_PATH}/codingducks/ducklets.png`,
-            ]}
-          />
 
           <TypographyH3 className="my-4 mt-8">
-            CD Judge — in-house code execution engine
+            Interactive Analytics Dashboard
           </TypographyH3>
           <p className="font-mono mb-2">
-            A free, self-hostable, Judge0-class execution engine supporting 10
-            languages (Python, JS, TS, Java, C, C++, Rust, Go, Ruby, PHP) with per-language
-            driver/harness generation that injects test cases, parses typed
-            arguments, and redacts hidden-test output. An asynchronous submit →
-            poll → verdict pipeline uses an optimistic-locking finalizer
-            (UPDATE … WHERE status=&apos;running&apos;) to guarantee exactly-once
-            streak/scoring under concurrent polling, plus &quot;beats X%&quot;
-            runtime-percentile ranking via SQL window aggregates.
+            A React + Recharts dashboard presents real-time data visualizations
+            including sentiment trends, competitor comparison charts, root cause
+            breakdowns, and brand health scores. The interface is designed for
+            product managers and brand strategists who need actionable insights
+            at a glance.
           </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/codingducks/problems.png`,
-              `${BASE_PATH}/codingducks/problem.png`,
-              `${BASE_PATH}/codingducks/machine-coding.png`,
-            ]}
-          />
 
           <TypographyH3 className="my-4 mt-8">
-            System Design — simulation game
+            HackBaroda 2026
           </TypographyH3>
           <p className="font-mono mb-2">
-            An interactive puzzle game where users assemble architectures from
-            16 typed building blocks on a React Flow canvas, then run them
-            through a pure-TypeScript, client-side traffic-simulation engine —
-            topological propagation, capacity/latency modeling, cache-warmth
-            EMA, SPOF detection, and DDoS &amp; chaos-fault injection. A 3-star
-            scoring model across reliability / performance / efficiency spans 10
-            progressively harder levels, guarded by a calibration suite
-            (node&nbsp;--test) that runs reference designs 15× through the real
-            engine to assert each level stays beatable-but-hard (optimal ⇒ 3★,
-            naive ⇒ ≤2★, broken ⇒ fail).
+            Built as a complete AI-powered Brand Intelligence Platform within
+            10 hours — focusing on long-term sentiment analysis, persistent
+            memory architecture, and intelligent business insights powered by
+            Groq and Qwen3-32B.
           </p>
-          <SlideShow images={[`${BASE_PATH}/codingducks/sysdesign.png`]} />
+          <SlideShow images={[`${BASE_PATH}/brandmirror/landing.png`]} />
         </div>
       );
     },
