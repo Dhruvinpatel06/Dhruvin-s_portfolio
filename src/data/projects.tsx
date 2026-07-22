@@ -269,16 +269,8 @@ const projects: Project[] = [
     id: "brandmirror",
     category: "AI-Powered Brand Intelligence Platform",
     title: "BrandMirror",
-    src: "/assets/projects-screenshots/brandmirror/dashboard.jpg",
-    screenshots: ["dashboard.jpg", "hub.png", "sentiment.png", "analysis.png", "audit.png", "chatbot.png"],
-    slideshowImages: [
-      "/assets/projects-screenshots/brandmirror/dashboard.jpg",
-      "/assets/projects-screenshots/brandmirror/hub.png",
-      "/assets/projects-screenshots/brandmirror/sentiment.png",
-      "/assets/projects-screenshots/brandmirror/analysis.png",
-      "/assets/projects-screenshots/brandmirror/audit.png",
-      "/assets/projects-screenshots/brandmirror/chatbot.png",
-    ],
+    src: "/assets/projects-screenshots/brandmirror/landing.png",
+    screenshots: ["landing.png", "dashboard.jpg", "hub.png", "sentiment.png", "analysis.png", "audit.png", "chatbot.png"],
     skills: {
       frontend: [
         PROJECT_SKILLS.react,

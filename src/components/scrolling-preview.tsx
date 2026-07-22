@@ -124,10 +124,12 @@ const ScrollingPreview = ({
           top: 20,
           bottom: 0,
           overflow: "hidden",
-          borderRadius: 10,
+          borderRadius: "10px 10px 0 0",
           boxShadow:
-            "0 24px 50px -12px rgba(8,20,55,0.55), 0 8px 18px -8px rgba(8,20,55,0.45)",
-          border: "1px solid rgba(255,255,255,0.18)",
+            "0 -4px 30px -8px rgba(8,20,55,0.45)",
+          borderTop: "1px solid rgba(255,255,255,0.18)",
+          borderLeft: "1px solid rgba(255,255,255,0.18)",
+          borderRight: "1px solid rgba(255,255,255,0.18)",
         }}
       >
         <motion.div

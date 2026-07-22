@@ -1,21 +1,23 @@
 "use client";
 
-import { AnimatePresence, motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
 /**
- * A crossfade slideshow that cycles through multiple images with smooth
- * Ken-Burns-style transitions. Each slide fades in, holds, then fades out
- * while the next fades in — creating a cinematic "app demo" feel.
+ * A true crossfade slideshow — both outgoing and incoming slides are rendered
+ * simultaneously as stacked absolute layers so they blend smoothly with no
+ * flash, gap, or layout shift.
  *
- * Used on the BrandMirror card to replace the single-image scroll approach
- * with a polished multi-screen walkthrough.
+ * Each slide gets a subtle Ken Burns drift (slow scale 1 → 1.06) during its
+ * hold time, giving the card a cinematic "app demo" feel.
+ *
+ * Used on the BrandMirror card to showcase multiple screens.
  */
 const SlideshowPreview = ({
   images,
   alt,
   interval = 3000,
-  fadeDuration = 1.2,
+  fadeDuration = 1.0,
 }: {
   /** Array of image URLs to cycle through */
   images: string[];
@@ -27,11 +29,10 @@ const SlideshowPreview = ({
   fadeDuration?: number;
 }) => {
   const [current, setCurrent] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
-    if (images.length <= 1 || isPaused) return;
+    if (images.length <= 1) return;
 
     timerRef.current = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
@@ -40,24 +41,70 @@ const SlideshowPreview = ({
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [images.length, interval, isPaused]);
+  }, [images.length, interval]);
 
   if (images.length === 0) return null;
+
+  // Total time a slide is on screen (hold + fade-out overlap)
+  const holdSec = interval / 1000;
 
   return (
     <div
       className="pointer-events-none absolute inset-0"
       role="img"
       aria-label={alt}
-      onMouseEnter={() => setIsPaused(false)}
-      onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Dark base so the fade-in never shows white */}
+      {/* Dark base so the crossfade never reveals a white flash */}
       <div
         style={{
           position: "absolute",
           inset: 0,
           background: "linear-gradient(135deg, #0f0c29, #302b63, #24243e)",
+        }}
+      />
+
+      {/* ── Crossfade slides ── */}
+      {/* AnimatePresence mode="sync" keeps both the exiting and entering
+          slide mounted simultaneously so they can truly cross-dissolve.
+          initial={false} skips the enter animation on mount so SSR
+          and client HTML match (no opacity:0 vs opacity:1 mismatch). */}
+      <AnimatePresence mode="sync" initial={false}>
+        <motion.div
+          key={current}
+          initial={{ opacity: 0 }}
+          animate={{
+            opacity: 1,
+            scale: [1, 1.05],
+          }}
+          exit={{ opacity: 0 }}
+          transition={{
+            opacity: { duration: fadeDuration, ease: "easeInOut" },
+            scale: {
+              duration: holdSec + fadeDuration,
+              ease: "easeOut",
+            },
+          }}
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: `url("${images[current]}")`,
+            backgroundSize: "cover",
+            backgroundPosition: "top center",
+            backgroundRepeat: "no-repeat",
+            willChange: "opacity, transform",
+          }}
+        />
+      </AnimatePresence>
+
+      {/* Subtle vignette overlay */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.3) 100%)",
+          pointerEvents: "none",
+          zIndex: 5,
         }}
       />
 
@@ -77,53 +124,21 @@ const SlideshowPreview = ({
         {images.map((_, i) => (
           <motion.div
             key={i}
-            style={{
+            animate={{
               width: i === current ? 20 : 6,
-              height: 6,
-              borderRadius: 3,
               background:
                 i === current
                   ? "rgba(255,255,255,0.9)"
                   : "rgba(255,255,255,0.3)",
-              transition: "all 0.4s ease",
+            }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            style={{
+              height: 6,
+              borderRadius: 3,
             }}
           />
         ))}
       </div>
-
-      {/* Image slides with crossfade */}
-      <AnimatePresence mode="popLayout">
-        <motion.div
-          key={current}
-          initial={{ opacity: 0, scale: 1.08 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.97 }}
-          transition={{
-            opacity: { duration: fadeDuration, ease: "easeInOut" },
-            scale: { duration: fadeDuration * 1.8, ease: "easeOut" },
-          }}
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: `url("${images[current]}")`,
-            backgroundSize: "cover",
-            backgroundPosition: "top center",
-            backgroundRepeat: "no-repeat",
-          }}
-        />
-      </AnimatePresence>
-
-      {/* Subtle vignette overlay */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          background:
-            "radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.3) 100%)",
-          pointerEvents: "none",
-          zIndex: 5,
-        }}
-      />
     </div>
   );
 };
