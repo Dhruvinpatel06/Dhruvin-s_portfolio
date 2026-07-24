@@ -612,111 +612,90 @@ const projects: Project[] = [
     },
   },
   {
-    id: "kanbi",
-    category: "Realtime project tracker",
-    title: "Kanbi",
-    src: "/assets/projects-screenshots/kanbi/landing.png",
-    screenshots: ["landing.png"],
+    id: "nexaflow",
+    category: "AI-Powered Productivity & Workflow Platform",
+    title: "NexaFlow AI",
+    src: "/assets/projects-screenshots/nexaflow/landing.png",
+    screenshots: ["landing.png", "demo.png", "features.png", "pricing.png"],
     skills: {
       frontend: [
+        PROJECT_SKILLS.react,
         PROJECT_SKILLS.ts,
         PROJECT_SKILLS.next,
-        PROJECT_SKILLS.react,
-        PROJECT_SKILLS.reactNative,
-        PROJECT_SKILLS.expo,
         PROJECT_SKILLS.tailwind,
+        PROJECT_SKILLS.motion,
       ],
-      backend: [
-        PROJECT_SKILLS.trpc,
-        PROJECT_SKILLS.drizzle,
-        PROJECT_SKILLS.postgres,
-        PROJECT_SKILLS.betterAuth,
-        PROJECT_SKILLS.mcp,
-        PROJECT_SKILLS.cloudflare,
-        PROJECT_SKILLS.turborepo,
-        PROJECT_SKILLS.docker,
-      ],
+      backend: [],
     },
-    live: "https://kanbi.nareshkhatri.site",
-    github: "https://github.com/Dhruvinpatel06/kanbi",
+    live: "https://nexaflow-ai-kappa.vercel.app",
+    github: "https://github.com/Dhruvinpatel06/NexaFlow_AI",
     get content() {
       return (
         <div>
           <TypographyP className="font-mono text-2xl text-center">
-            A keyboard-first, realtime Kanban tracker — &quot;Linear, but small
-            enough to own.&quot;
+            A premium SaaS landing page for an Autonomous AI Operating System —
+            built for Frontend Battle 3.0 at IIT Bhubaneswar.
           </TypographyP>
           <TypographyP className="font-mono ">
-            A full-stack TypeScript monorepo (pnpm + Turborepo) spanning three
-            deployable surfaces — a Next.js 15 web app, an OAuth-secured MCP
-            server for AI agents, and an Expo mobile companion — with end-to-end
-            type safety from Postgres → Drizzle → tRPC v11 → React, so a schema
-            change ripples to compile errors in the UI with zero codegen. ~21K
-            lines of TypeScript, 16 domain tRPC routers, a 25-table schema, and 8
-            scoped MCP agent tools.
+            NexaFlow AI is an 8-scene cinematic landing page built with Next.js
+            14, React 19, and Tailwind CSS v4. It features a monochromatic
+            luxury design system inspired by Apple Vision Pro and Linear — deep
+            obsidian black base (#030303), specular edge lighting, glassmorphism
+            cards, and zero-neon contrast driven entirely by light, shadow, and
+            metallic white typography. Designed and engineered for the IIT
+            Bhubaneswar Frontend Battle 3.0 – 2026 hackathon.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
 
           <TypographyH3 className="my-4 mt-8">
-            Realtime collaboration &amp; fractional ordering
+            8-Scene Camera Travel Architecture
           </TypographyH3>
           <p className="font-mono mb-2">
-            Drag-and-drop boards with optimistic UI and live multi-user updates,
-            powered by tRPC subscriptions over Server-Sent Events. An in-process
-            event bus broadcasts <code>boardId</code>-scoped invalidation signals
-            that carry <em>no payload</em> — clients simply refetch through React
-            Query, keeping the realtime layer cheap and consistent. Mutations
-            snapshot-and-rollback (<code>onMutate</code>/<code>onError</code>/
-            <code>onSettled</code>) and deletes are undoable (6-second deferred
-            server call + toast). Columns and cards order via fractional indexing
-            — new items insert at the midpoint between neighbors, so a reorder
-            touches one row instead of re-sequencing the whole list, with collapse
-            detection and rebalancing.
+            The hero opens with a WebGL 3D neural dust particle mesh, a live
+            code terminal (nexaflow_init.ts), and real-time telemetry counters
+            (12,840+ workflows, 99.98% SLA, sub-15ms latency). Scene 2 features
+            a fully interactive prompt simulator with a 4-step execution trace
+            timeline and streaming memory logs. Scene 3 delivers 3D glass bento
+            cards with specular borders showcasing platform capabilities.
           </p>
           <SlideShow
             images={[
-              `${BASE_PATH}/kanbi/board.png`,
-              `${BASE_PATH}/kanbi/dashboard.png`,
+              `${BASE_PATH}/nexaflow/landing.png`,
+              `${BASE_PATH}/nexaflow/demo.png`,
             ]}
           />
 
           <TypographyH3 className="my-4 mt-8">
-            One auth model, three clients &amp; an MCP server for AI agents
+            Interactive AI Playground & Dynamic Pricing
           </TypographyH3>
           <p className="font-mono mb-2">
-            A layered, type-safe authorization model encodes access control at the
-            procedure level — <code>protectedProcedure</code> →{" "}
-            <code>projectProcedure</code> → <code>boardProcedure</code> →{" "}
-            <code>publicBoardProcedure</code> (share token, no auth) — with role
-            checks gating every mutation. The same model is reused across three
-            entry points so ACLs can&apos;t drift: browser cookies, hashed
-            per-device bearer tokens for mobile (SHA-256 at rest), and OAuth-2.1
-            JWTs for AI agents. The spec-compliant MCP server (Streamable HTTP)
-            exposes 8 read/write tools through a full OAuth 2.1 flow — dynamic
-            client registration, a consent screen, JWKS-verified JWTs — each tool a
-            thin wrapper over the existing tRPC procedures via a JWT→session
-            bridge, so permissions, validation, ordering, and the realtime bus are
-            all reused; agent-authored HTML is server-side sanitized.
+            The playground lets users type custom workflow prompts or select
+            presets (e.g., &quot;Automate HubSpot Lead Intake → Send Slack
+            Notification → Update Notion DB&quot;) and watch a live execution
+            trace with per-step latency. The pricing engine supports real-time
+            multi-currency conversion (USD, EUR, GBP, INR, JPY, CAD, AUD) with
+            monthly/annual billing toggles and automated 20% discount
+            calculations — all driven by a clean pricingMatrix.ts +
+            pricingEmitter.ts architecture.
           </p>
-          <SlideShow images={[`${BASE_PATH}/kanbi/profile.png`]} />
+          <SlideShow
+            images={[
+              `${BASE_PATH}/nexaflow/features.png`,
+              `${BASE_PATH}/nexaflow/pricing.png`,
+            ]}
+          />
 
           <TypographyH3 className="my-4 mt-8">
-            Native Android dock dashboard &amp; AI task drafting
+            🏆 Frontend Battle 3.0 – 2026
           </TypographyH3>
           <p className="font-mono mb-2">
-            A custom native Android Expo module written in Kotlin implements
-            Android&apos;s <code>DreamService</code> (the system daydream): dock
-            the phone and the OS launches a React Native root view rendering the
-            active task and a Pomodoro timer — a genuine focus dashboard, with{" "}
-            <code>showWhenLocked</code>, screen-on, and keyguard dismissal handled
-            natively. Devices pair by QR with secure token storage
-            (<code>expo-secure-store</code>). On the web, paste a raw client
-            message and a Groq-backed LLM extracts structured, actionable issues
-            (title, description, label, priority); rich-text descriptions use Tiptap
-            with <code>@mention</code> and <code>#ticket</code> cross-reference
-            extensions.
+            Built for Frontend Battle 3.0 – 2026, the flagship frontend
+            competition organized by the Web and Design Society at IIT
+            Bhubaneswar. Features a custom single-pointer precision cursor with
+            spring physics, 60 FPS GPU-accelerated animations, JSON-LD
+            structured data, and 100% static pre-rendering for instant First
+            Contentful Paint.
           </p>
-          <SlideShow images={[`${BASE_PATH}/kanbi/ai-draft.png`]} />
         </div>
       );
     },
