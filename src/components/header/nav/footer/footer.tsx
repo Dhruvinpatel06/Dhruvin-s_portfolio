@@ -49,15 +49,6 @@ export default function Footer() {
         >
           Blog
         </motion.li>
-        <motion.li
-          custom={[0.3, 0]}
-          variants={translate}
-          initial="initial"
-          animate="enter"
-          exit="exit"
-        >
-          Newsletter
-        </motion.li>
       </ul>
     </div>
   );
