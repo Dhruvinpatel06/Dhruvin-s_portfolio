@@ -1,26 +1,29 @@
-# 🚀 3D Portfolio
+# 🚀 Dhruvin's 3D Portfolio
 
-A jaw-dropping developer portfolio packed with interactive 3D animations, buttery smooth transitions, and a space-themed aesthetic. Not your average portfolio template! This one has a fully interactive 3D keyboard where each keycap is a skill.
+A jaw-dropping developer portfolio packed with interactive 3D animations, buttery smooth transitions, and a space-themed aesthetic. This portfolio features a fully interactive 3D keyboard where each keycap represents a skill — hover or press to reveal details.
 
 ## ✨ Features
 
-- **Interactive 3D Keyboard** — Custom Spline keyboard where each keycap represents a skill, revealing titles and descriptions on hover/press
+- **Interactive 3D Keyboard** — Custom Spline keyboard where each keycap represents a skill, revealing titles and descriptions on hover/press with sound effects
 - **Buttery Animations** — GSAP + Framer Motion powered scroll, hover, and reveal animations
 - **Space Theme** — Floating particles on a dark canvas for a cosmic vibe
-- **Light & Dark Mode** — Full theme support with cheeky disclaimer toasts
-- **Responsive** — Works across all screen sizes
-- **Contact Form** — Email delivery via Resend
+- **Light & Dark Mode** — Full theme support with smooth transitions
+- **Responsive** — Works across all screen sizes (desktop, tablet, mobile)
+- **Contact Form** — Email delivery via Resend with rate limiting and Zod validation
+- **Blog** — MDX-powered blog with featured post layout and tag filtering
+- **Project Showcase** — Scrolling preview cards with auto-panning screenshots and slideshow support
 - **Analytics** _(optional)_ — Umami analytics integration
 
 ## 🛠️ Tech Stack
 
 | Layer | Technologies |
 |---|---|
-| **Framework** | Next.js 14, React 18, TypeScript |
+| **Framework** | Next.js 16, React 19, TypeScript |
 | **Styling** | Tailwind CSS, Shadcn UI, Aceternity UI |
 | **Animation** | GSAP, Framer Motion |
 | **3D** | Spline Runtime |
 | **Email** | Resend |
+| **Blog** | MDX |
 | **Misc** | Lenis (smooth scroll), Zod, next-themes |
 
 ---
@@ -72,43 +75,80 @@ A jaw-dropping developer portfolio packed with interactive 3D animations, butter
 
 ---
 
-## 🎨 Make It Your Own
+## 📁 Project Structure
 
-All personal info is centralized in [`src/data/config.ts`](src/data/config.ts). Edit this single file to rebrand the portfolio:
+```
+src/
+├── app/                  # Next.js App Router pages
+│   ├── api/send/         # Contact form email API route
+│   ├── blogs/            # Blog listing and detail pages
+│   └── page.tsx          # Main portfolio page
+├── components/
+│   ├── sections/         # Page sections (hero, about, skills, experience, projects, contact)
+│   ├── footer/           # Footer component and config
+│   ├── header/           # Navigation header with animated menu
+│   ├── animated-background.tsx  # 3D keyboard scene controller
+│   └── ContactForm.tsx   # Contact form with validation
+├── content/
+│   └── blogs/            # MDX blog posts
+├── data/
+│   ├── config.ts         # Site-wide configuration (name, socials, email)
+│   ├── constants.ts      # Skills, experience, and keyboard data
+│   └── projects.tsx      # Project cards data and content
+└── lib/
+    └── mdx.ts            # MDX blog processing utilities
+```
+
+---
+
+## 🎨 Customization
+
+All personal info is centralized in [`src/data/config.ts`](src/data/config.ts):
 
 ```ts
 const config = {
-  title: "Your Name | Your Title",
-  description: {
-    long: "Your long description for SEO...",
-    short: "Your short description...",
-  },
-  keywords: ["your", "keywords"],
-  author: "Your Name",
-  email: "you@example.com",
-  site: "https://yoursite.com",
-
-  // GitHub stars button in the header
-  githubUsername: "your-github-username",
-  githubRepo: "your-repo-name",
-
+  title: "Dhruvin Patel | Full-Stack Developer",
+  author: "Dhruvin Patel",
+  email: "pateldhruvin2506@gmail.com",
+  githubUsername: "Dhruvinpatel06",
+  githubRepo: "3d-portfolio",
   social: {
-    twitter: "https://x.com/you",
-    linkedin: "https://linkedin.com/in/you",
-    instagram: "https://instagram.com/you",
-    facebook: "https://facebook.com/you",
-    github: "https://github.com/you",
+    twitter: "https://x.com/PatelDhruvin_",
+    linkedin: "https://www.linkedin.com/in/dhruvin-patel-14a741310/",
+    instagram: "https://www.instagram.com/dhruvinpatel_25/",
+    github: "https://github.com/Dhruvinpatel06",
   },
 };
 ```
 
-Other files you'll want to customize:
+Other key files to customize:
 
 | File | What to change |
 |---|---|
-| `src/data/projects.tsx` | Your projects, screenshots, descriptions, and tech stacks |
+| `src/data/projects.tsx` | Projects, screenshots, descriptions, and tech stacks |
 | `src/data/constants.ts` | Skills list (name, description, icon) and work experience |
-| `public/assets/` | Your images, OG image, and project screenshots |
+| `src/content/blogs/` | Add `.mdx` blog posts with frontmatter |
+| `public/assets/` | Images, OG image, and project screenshots |
+
+---
+
+## ✍️ Adding Blog Posts
+
+Create `.mdx` files in `src/content/blogs/`:
+
+```mdx
+---
+title: "Your Blog Title"
+publishedAt: "2026-07-26"
+summary: "A brief summary of your post."
+author: "Dhruvin Patel"
+tags: ["web-dev", "react"]
+---
+
+Your markdown content here...
+```
+
+The blog page automatically picks up new posts, sorts by date, and displays a featured post layout.
 
 ---
 
@@ -126,7 +166,6 @@ The 3D keyboard keycaps are baked into a Spline file. To update the skills displ
 After updating the Spline file, make sure `src/data/constants.ts` has matching entries for every skill on the keyboard:
 
 ```ts
-// Each keycap object name in Spline must match a key in SKILLS
 export const SKILLS: Record<SkillNames, Skill> = {
   js: { name: "js", label: "JavaScript", shortDescription: "...", ... },
   react: { name: "react", label: "React", shortDescription: "...", ... },
@@ -149,8 +188,7 @@ The portfolio supports optional realtime features powered by a **separate backen
 These features activate automatically when the `NEXT_PUBLIC_WS_URL` environment variable is set. Without it, the portfolio works perfectly fine as a static site — no realtime features, no backend dependency.
 
 > [!NOTE]
-> The backend API is **not open source**. This is intentional! Too many people have cloned the portfolio and claimed they built it from scratch. The realtime server stays private to keep the live experience unique make make it standout.
-
+> The backend API is **not open source**. This is intentional to keep the live experience unique.
 
 ---
 
@@ -162,7 +200,7 @@ This site is deployed on **Vercel**. To deploy your own:
 
 1. Push your code to a GitHub repository
 2. Connect the repository to [Vercel](https://vercel.com)
-3. Add your environment variables in the Vercel dashboard
+3. Add your environment variables (`RESEND_API_KEY`, etc.) in the Vercel dashboard
 4. Vercel handles the rest — automatic deployments on every push
 
 ---
