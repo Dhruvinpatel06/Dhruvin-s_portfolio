@@ -201,6 +201,24 @@ const PROJECT_SKILLS = {
     fg: "white",
     icon: <span className="text-xs font-bold">📊</span>,
   },
+  django: {
+    title: "Django",
+    bg: "black",
+    fg: "white",
+    icon: <span className="text-xs font-bold">Dj</span>,
+  },
+  sqlite: {
+    title: "SQLite",
+    bg: "black",
+    fg: "white",
+    icon: <span className="text-xs font-bold">SQL</span>,
+  },
+  bootstrap: {
+    title: "Bootstrap",
+    bg: "black",
+    fg: "white",
+    icon: <span className="text-xs font-bold">B</span>,
+  },
 };
 export type Project = {
   id: string;
@@ -513,100 +531,83 @@ const projects: Project[] = [
     },
   },
   {
-    id: "peakposts",
-    category: "AI social SaaS",
-    title: "PeakPosts",
-    src: "/assets/projects-screenshots/peakposts/landing.png",
+    id: "careerflow",
+    category: "AI-Powered Career & Recruitment Platform",
+    title: "CareerFlow",
+    src: "/assets/projects-screenshots/careerflow/landing.png",
     screenshots: ["landing.png"],
     skills: {
       frontend: [
-        PROJECT_SKILLS.ts,
-        PROJECT_SKILLS.next,
-        PROJECT_SKILLS.react,
-        PROJECT_SKILLS.tailwind,
-        PROJECT_SKILLS.motion,
-        PROJECT_SKILLS.nextIntl,
+        PROJECT_SKILLS.html5,
+        PROJECT_SKILLS.css3,
+        PROJECT_SKILLS.js,
+        PROJECT_SKILLS.bootstrap,
       ],
       backend: [
-        PROJECT_SKILLS.trpc,
-        PROJECT_SKILLS.drizzle,
-        PROJECT_SKILLS.postgres,
-        PROJECT_SKILLS.betterAuth,
-        PROJECT_SKILLS.aiSDK,
-        PROJECT_SKILLS.anthropic,
-        PROJECT_SKILLS.mistral,
-        PROJECT_SKILLS.cloudflare,
+        PROJECT_SKILLS.python,
+        PROJECT_SKILLS.django,
+        PROJECT_SKILLS.sqlite,
       ],
     },
-    // Private repo (commercial product) — intentionally no public source link
-    live: "https://peakposts.ai/",
+    live: "https://career-flow-pi.vercel.app",
+    github: "https://github.com/Dhruvinpatel06/CareerFlow",
     get content() {
       return (
         <div>
           <TypographyP className="font-mono text-2xl text-center">
-            A multi-tenant SaaS that turns QR-scanned diner reviews into
-            AI-generated, multi-language social posts — built solo, end-to-end.
+            A modern recruitment and career management platform connecting job
+            seekers, employers, and administrators — built during my Backend
+            Development Internship at CodeAlpha.
           </TypographyP>
           <TypographyP className="font-mono ">
-            A production-grade, multi-tenant SaaS (~50K lines of TypeScript) on
-            the Next.js 15 App Router with end-to-end type safety from PostgreSQL
-            → Drizzle ORM → tRPC v11 → React, serving five distinct audiences —
-            diners, brand owners, counter staff, platform admins, and public
-            marketing — from a single application. 208 React components, 14 tRPC
-            routers, a normalized 19-table schema, and 5 AI subsystems across 5
-            languages.
+            CareerFlow was developed during my Backend Development Internship at
+            CodeAlpha as a full-stack recruitment platform designed to simplify
+            the job application and hiring process. The platform provides
+            dedicated dashboards for job seekers, employers, and administrators,
+            allowing each user to efficiently manage their responsibilities.
+            Candidates can explore job opportunities, create professional
+            profiles, upload resumes, and submit applications. Employers can
+            publish job openings, review applications, and manage recruitment
+            workflows, while administrators oversee platform management and user
+            operations.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
 
           <TypographyH3 className="my-4 mt-8">
-            Peakie — agentic AI analytics assistant
+            Role-Based Dashboards
           </TypographyH3>
           <p className="font-mono mb-2">
-            A hand-rolled tool-calling loop on the Vercel AI SDK (Mistral) over 10
-            brand-scoped tools — no agent framework — hardened against
-            small-model failure modes: spin-detection, hallucinated-tool-name
-            repair, per-tool and total over-fetch caps, exact-call de-duplication,
-            a token-budget history trimmer, and forced tool-choice on the final
-            step to guarantee termination within 6 steps. A terminal{" "}
-            <code>present_actions</code> tool forces structured, deep-linkable
-            answers, and every AI-produced link is re-validated against the
-            user&apos;s accessible scope so a hallucinated or out-of-scope
-            resource ID can never leak across tenant boundaries.
+            Three dedicated dashboards for candidates, employers, and
+            administrators — each with tailored workflows. Candidates explore
+            job listings, build profiles, and upload resumes. Employers post
+            openings, review applications, and manage hiring pipelines.
+            Administrators oversee platform-wide user management and operations
+            through a secure admin panel.
           </p>
-          <SlideShow images={[`${BASE_PATH}/peakposts/dashboard.png`]} />
 
           <TypographyH3 className="my-4 mt-8">
-            AI content-generation pipeline
+            Full-Stack Architecture
           </TypographyH3>
           <p className="font-mono mb-2">
-            An Anthropic Claude pipeline converts a star rating + photo + note
-            into platform-tailored social captions across 6 platforms and 5
-            languages using Zod-schema-enforced structured output, brand-voice
-            configuration, content moderation, and deterministic fallbacks so
-            generation never hard-fails. The diner&apos;s locale does double duty
-            — selecting both the UI catalog and the language the AI writes in
-            (e.g. picking Chinese yields a Xiaohongshu-style caption). A
-            retrieval-augmented help center pairs Mistral embeddings + cosine
-            similarity with a weighted-TF lexical fallback for API outages.
+            Built with Django and Python on the backend with SQLite for
+            efficient data management. The frontend uses HTML5, CSS3, JavaScript,
+            and Bootstrap for a responsive, mobile-friendly experience. Features
+            include user authentication with role-based access control, resume
+            upload system, job search with filtering, and complete CRUD
+            operations across all entities.
           </p>
-          <SlideShow images={[`${BASE_PATH}/peakposts/posts.png`]} />
 
           <TypographyH3 className="my-4 mt-8">
-            In-browser video editor &amp; multi-tenant security
+            Internship Project — CodeAlpha
           </TypographyH3>
           <p className="font-mono mb-2">
-            Diners generate H.264 MP4 video and images entirely client-side via
-            the WebCodecs <code>VideoEncoder</code> + mp4-muxer and Canvas 2D,
-            inside a direct-manipulation post editor (pinch/rotate/drag gestures,
-            caption presets, CJK font subsetting) — zero server-side render cost.
-            The multi-step diner flow persists to IndexedDB via a custom Zustand
-            adapter, with client-side image compression and presigned
-            direct-to-R2 uploads. Underneath sits a five-tier tRPC authorization
-            layer with brand- vs. outlet-scoped grants, existence-masking
-            (<code>NOT_FOUND</code> over <code>FORBIDDEN</code>), and two-factor
-            counter auth — a hashed device token plus per-staff PIN with
-            brute-force lockout.
+            Developed as part of my Backend Development Internship at CodeAlpha,
+            this project demonstrates my ability to build complete web
+            applications with role-based authentication, database management,
+            backend logic, and responsive user interfaces while solving
+            real-world recruitment challenges.
           </p>
+          <SlideShow images={[`${BASE_PATH}/careerflow/landing.png`]} />
         </div>
       );
     },
