@@ -48,15 +48,54 @@ const ProjectCard = ({ project }: { project: Project }) => {
                 Projects with `videoSrc` show a looping video preview.
                 Projects with `slideshowImages` use a crossfade slideshow instead. */}
             {project.videoSrc ? (
-              <video
-                src={project.videoSrc}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="pointer-events-none absolute inset-0 w-full h-full object-cover"
+              <div
+                className="pointer-events-none absolute inset-0"
+                role="img"
                 aria-label={project.title}
-              />
+              >
+                {/* wallpaper background */}
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    backgroundColor: "#0f172a",
+                    backgroundImage: `url("/assets/backgrounds/${project.id}.jpg?v=2")`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                />
+                {/* floating video panel — matches ScrollingPreview frame */}
+                <div
+                  style={{
+                    position: "absolute",
+                    left: 22,
+                    right: 22,
+                    top: 20,
+                    bottom: 0,
+                    overflow: "hidden",
+                    borderRadius: "10px 10px 0 0",
+                    boxShadow: "0 -4px 30px -8px rgba(8,20,55,0.45)",
+                    borderTop: "1px solid rgba(255,255,255,0.18)",
+                    borderLeft: "1px solid rgba(255,255,255,0.18)",
+                    borderRight: "1px solid rgba(255,255,255,0.18)",
+                  }}
+                >
+                  <video
+                    src={project.videoSrc}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                </div>
+              </div>
             ) : project.slideshowImages && project.slideshowImages.length > 1 ? (
               <SlideshowPreview
                 images={project.slideshowImages}
