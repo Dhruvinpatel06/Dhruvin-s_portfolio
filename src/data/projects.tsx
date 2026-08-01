@@ -387,80 +387,79 @@ const projects: Project[] = [
     },
   },
   {
-    id: "gumbalup",
-    category: "Real-time quiz platform",
-    title: "Gumbalup",
-    src: "/assets/projects-screenshots/gumbalup/landing.png",
-    screenshots: ["landing.png"],
+    id: "dhruvins-portfolio",
+    category: "Personal Portfolio Website",
+    title: "Dhruvin's Portfolio",
+    src: "/assets/projects-screenshots/portfolio/landing.png",
+    videoSrc: "/assets/projects-screenshots/portfolio/demo.mp4",
+    screenshots: ["landing.png", "projects.png", "skills.png"],
     skills: {
       frontend: [
-        PROJECT_SKILLS.ts,
-        PROJECT_SKILLS.next,
+        PROJECT_SKILLS.html5,
+        PROJECT_SKILLS.css3,
+        PROJECT_SKILLS.js,
         PROJECT_SKILLS.react,
+        PROJECT_SKILLS.next,
         PROJECT_SKILLS.tailwind,
         PROJECT_SKILLS.motion,
       ],
-      backend: [
-        PROJECT_SKILLS.trpc,
-        PROJECT_SKILLS.partykit,
-        PROJECT_SKILLS.drizzle,
-        PROJECT_SKILLS.postgres,
-        PROJECT_SKILLS.betterAuth,
-        PROJECT_SKILLS.cloudflare,
-        PROJECT_SKILLS.docker,
-      ],
+      backend: [],
     },
-    live: "https://gumbalup.com/",
-    // Private repo (commercial product) — intentionally no public source link
+    live: "#",
+    github: "https://github.com/Dhruvinpatel06/Dhruvin-s_portfolio",
     get content() {
       return (
         <div>
           <TypographyP className="font-mono text-2xl text-center">
-            A live, interactive quiz &amp; audience-engagement platform — built
-            solo, end-to-end.
+            A modern and responsive personal portfolio website designed to
+            showcase my skills, projects, experience, achievements, and
+            professional journey.
           </TypographyP>
           <TypographyP className="font-mono ">
-            A production-grade, multi-tenant SaaS where organizations build
-            quizzes (manually or with AI) and run live, host-driven games —
-            players join from any device via room code / QR and compete on a
-            real-time, server-authoritative leaderboard. Also supports async
-            self-paced quizzes, team mode, anti-cheat monitoring, analytics,
-            billing, and white-labeling. ~43.5K lines of TypeScript across 257
-            files.
+            Dhruvin&apos;s Portfolio is my personal website built to present my
+            identity as a Computer Science Engineering student, developer, and
+            creative technologist. The project highlights my technical skills,
+            internship experience, academic journey, hackathon participation, and
+            selected projects in one polished online presence. The portfolio
+            focuses on modern UI/UX, smooth animations, responsive design, and a
+            professional structure that reflects both my technical background and
+            personal brand.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
 
           <TypographyH3 className="my-4 mt-8">
-            Server-authoritative game engine
+            Design &amp; User Experience
           </TypographyH3>
           <p className="font-mono mb-2">
-            A real-time game engine on PartyKit (Cloudflare Durable Objects +
-            WebSockets): a per-room in-memory state machine with an authoritative
-            1-second timer, speed-rank + streak scoring, deterministic
-            tie-broken leaderboards, team mode, and graceful reconnect/replay —
-            ~2,800 lines of game logic behind a typed message protocol (42
-            discriminated-union variants). Correctness is never sent to clients
-            during an active question, so players can&apos;t sniff answers or
-            game the clock.
-          </p>
-          <SlideShow images={[`${BASE_PATH}/gumbalup/dashboard.png`]} />
-
-          <TypographyH3 className="my-4 mt-8">
-            Edge-to-DB security boundary &amp; AI authoring
-          </TypographyH3>
-          <p className="font-mono mb-2">
-            The edge worker never connects to Postgres directly — it proxies all
-            persistence through a shared-secret internal HTTPS API on Next.js,
-            keeping the database unreachable from the public internet while the
-            worker stays stateless and edge-deployed. A fully type-safe layer (17
-            tRPC routers, 5 authorization tiers, Zod) backs it, with LLM-powered
-            quiz authoring (Groq / Llama) from topics or uploaded PDFs, quota-
-            metered per org, plus analytics with CSV/Excel/PDF export.
+            Features a premium dark-themed design with strong personal branding,
+            clean section layouts, and smooth Framer Motion transitions. Includes
+            a hero section, about me and journey sections, experience and
+            internship highlights, a skills and tech stack showcase, featured
+            projects, a blog section for personal interests, and contact with
+            social links — all fully responsive and mobile-friendly.
           </p>
           <SlideShow
             images={[
-              `${BASE_PATH}/gumbalup/editor.png`,
-              `${BASE_PATH}/gumbalup/library.png`,
+              `${BASE_PATH}/portfolio/projects.png`,
+              `${BASE_PATH}/portfolio/skills.png`,
+            ]}
+          />
+
+          <TypographyH3 className="my-4 mt-8">
+            Tech Stack &amp; Implementation
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            Built with React and Next.js for fast, SEO-friendly rendering,
+            styled with Tailwind CSS for a utility-first responsive layout, and
+            animated with Framer Motion for polished micro-interactions. The
+            codebase is structured for maintainability and serves as a central
+            place to showcase my growth, work, and future goals in software
+            development and technology.
+          </p>
+          <SlideShow
+            images={[
+              `${BASE_PATH}/portfolio/navbar.png`,
+              `${BASE_PATH}/portfolio/project.png`,
             ]}
           />
         </div>
