@@ -45,8 +45,19 @@ const ProjectCard = ({ project }: { project: Project }) => {
           >
             {/* `src` can be any aspect ratio (tall pages pan, normal ones fit);
                 the wallpaper is an optional /assets/backgrounds/<id>.jpg.
+                Projects with `videoSrc` show a looping video preview.
                 Projects with `slideshowImages` use a crossfade slideshow instead. */}
-            {project.slideshowImages && project.slideshowImages.length > 1 ? (
+            {project.videoSrc ? (
+              <video
+                src={project.videoSrc}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="pointer-events-none absolute inset-0 w-full h-full object-cover"
+                aria-label={project.title}
+              />
+            ) : project.slideshowImages && project.slideshowImages.length > 1 ? (
               <SlideshowPreview
                 images={project.slideshowImages}
                 alt={project.title}

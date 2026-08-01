@@ -219,6 +219,24 @@ const PROJECT_SKILLS = {
     fg: "white",
     icon: <span className="text-xs font-bold">B</span>,
   },
+  threejs: {
+    title: "Three.js",
+    bg: "black",
+    fg: "white",
+    icon: <SiThreedotjs />,
+  },
+  webgl: {
+    title: "WebGL",
+    bg: "black",
+    fg: "white",
+    icon: <span className="text-xs font-bold">GL</span>,
+  },
+  blender: {
+    title: "Blender",
+    bg: "black",
+    fg: "white",
+    icon: <span className="text-xs font-bold">B3D</span>,
+  },
 };
 export type Project = {
   id: string;
@@ -228,6 +246,8 @@ export type Project = {
   screenshots: string[];
   /** Optional: when provided, the card shows a crossfade slideshow instead of a single scrolling image */
   slideshowImages?: string[];
+  /** Optional: when provided, the card shows a looping muted video preview instead of images */
+  videoSrc?: string;
   skills: { frontend: Skill[]; backend: Skill[] };
   content: React.ReactNode | any;
   github?: string;
@@ -448,84 +468,111 @@ const projects: Project[] = [
     },
   },
   {
-    id: "waku",
-    category: "Image rendering platform",
-    title: "Waku",
-    src: "/assets/projects-screenshots/waku/landing.png",
-    screenshots: ["landing.png"],
+    id: "freecity",
+    category: "Open-World City Exploration & Driving Game",
+    title: "FREECITY",
+    src: "/assets/projects-screenshots/freecity/landing.png",
+    screenshots: ["landing.png", "downtown.png", "park.png", "harbor.png", "railway.png", "beach.png", "panorama.png", "commercial.png"],
+    videoSrc: "/assets/projects-screenshots/freecity/preview.mp4",
     skills: {
       frontend: [
-        PROJECT_SKILLS.ts,
-        PROJECT_SKILLS.next,
-        PROJECT_SKILLS.react,
-        PROJECT_SKILLS.tailwind,
+        PROJECT_SKILLS.js,
+        PROJECT_SKILLS.threejs,
+        PROJECT_SKILLS.webgl,
+        PROJECT_SKILLS.html5,
+        PROJECT_SKILLS.css3,
       ],
       backend: [
-        PROJECT_SKILLS.trpc,
-        PROJECT_SKILLS.drizzle,
-        PROJECT_SKILLS.postgres,
-        PROJECT_SKILLS.satori,
-        PROJECT_SKILLS.betterAuth,
-        PROJECT_SKILLS.cloudflare,
-        PROJECT_SKILLS.turborepo,
-        PROJECT_SKILLS.docker,
+        PROJECT_SKILLS.blender,
       ],
     },
-    live: "https://waku.nareshkhatri.site",
-    github: "https://github.com/Dhruvinpatel06/waku",
+    live: "#",
+    github: "https://github.com/Dhruvinpatel06/Free-City",
     get content() {
       return (
         <div>
           <TypographyP className="font-mono text-2xl text-center">
-            An on-demand dynamic image-generation service — &quot;design once,
-            ship a typed URL endpoint.&quot;
+            A low-poly open-world city exploration game — built from scratch as
+            a personal passion project to learn game development, real-time
+            rendering, AI systems, and interactive world design.
           </TypographyP>
           <TypographyP className="font-mono ">
-            Design a template once in a Canva-like editor, then get a typed URL
-            that renders images with live, dynamic data on demand (currently
-            focused on OG images). Built as a 7-package Turborepo monorepo
-            (Next.js 15 / React 19 / TypeScript) — a visual editor, an edge render
-            service, a 3-stage rendering engine, typed SDKs, and shared DB/font
-            packages. 25K+ LOC, MIT-licensed and self-hostable via
-            docker-compose.
+            FREECITY is my largest personal game development project, created to
+            explore modern game design and challenge myself beyond traditional
+            web development. The game features a fully explorable low-poly city
+            where players can freely drive vehicles, walk around urban
+            environments, interact with traffic systems, and discover different
+            areas including downtown streets, parks, residential zones,
+            commercial buildings, and scenic landscapes. Rather than focusing on
+            a fixed storyline, FREECITY emphasizes freedom, exploration, and
+            continuous improvement — serving as a long-term learning experience
+            where I experiment with game mechanics, world-building, AI
+            behaviors, rendering techniques, optimization, and user experience.
           </TypographyP>
-          <ProjectsLinks live={this.live} repo={this.github} />
+          <ProjectsLinks repo={this.github} />
+
+          <div className="flex items-center gap-2 my-4">
+            <span className="inline-flex items-center gap-1.5 text-xs font-mono px-3 py-1 rounded-full border border-yellow-500/30 bg-yellow-500/10 text-yellow-400">
+              🚧 Currently in Active Development
+            </span>
+            <span className="inline-flex items-center gap-1.5 text-xs font-mono px-3 py-1 rounded-full border border-muted-foreground/20 bg-muted/50 text-muted-foreground cursor-not-allowed opacity-60">
+              Live Demo — Coming Soon
+            </span>
+          </div>
 
           <TypographyH3 className="my-4 mt-8">
-            Deterministic render pipeline &amp; URL contract
+            Open-World Exploration
           </TypographyH3>
           <p className="font-mono mb-2">
-            A deterministic pipeline (TemplateDocument → Satori → Resvg → sharp)
-            compiles a flat node IR to SVG and rasterizes to PNG/WebP/JPEG with
-            HTTP Accept-based format negotiation, dynamic font subsetting from a
-            CDN (25 families, Latin unicode-range parsing), and retina-aware
-            transcoding — served behind an immutable Cache-Control: max-age=1y URL
-            contract. Query params are sorted before encoding so any input order
-            maps to one cache key; versioned URLs are immutable while published
-            URLs 302-redirect to a numbered version, so edits never break
-            previously-shared links.
-          </p>
-          <SlideShow images={[`${BASE_PATH}/waku/preview.png`]} />
-
-          <TypographyH3 className="my-4 mt-8">
-            Canva-like editor &amp; AI template generation
-          </TypographyH3>
-          <p className="font-mono mb-2">
-            A visual editor built from scratch (no Figma/tldraw/Fabric) on raw
-            pointer events + a Zustand store: edge/center snap guides,
-            scroll-anchored + pinch zoom (5%–800%), a 100-entry coalesced
-            undo/redo stack, and a parameter-binding system that turns any field
-            into a typed URL param. An AI agent generates full templates from a
-            prompt, validated against a Zod document schema. The public image
-            proxy is also SSRF-hardened (private-IP/CIDR blocking, redirect
-            re-validation, streaming size caps, and per-user/IP rate limiting).
+            A large open-world city with free roam exploration, third-person
+            character controller, driveable vehicles, interactive road networks,
+            traffic lights, NPC pedestrians, AI traffic, mini-map navigation,
+            real-time clock, FPS counter, and speedometer. The city includes an
+            urban downtown district, commercial buildings, parks and green areas,
+            mountain environments, detailed roads and sidewalks — all rendered in
+            a clean low-poly art style with performance-optimized rendering.
           </p>
           <SlideShow
             images={[
-              `${BASE_PATH}/waku/editor.png`,
-              `${BASE_PATH}/waku/ai.png`,
+              `${BASE_PATH}/freecity/downtown.png`,
+              `${BASE_PATH}/freecity/commercial.png`,
+              `${BASE_PATH}/freecity/park.png`,
             ]}
           />
+
+          <TypographyH3 className="my-4 mt-8">
+            World Building & Environments
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            The city is continuously expanding with new districts, roads,
+            landmarks, and interactive elements. Current environments include
+            harbors and ports, beach areas with lighthouses, railway stations,
+            mountain scenery, and a full urban downtown — all built with custom
+            low-poly 3D assets created in Blender and rendered in real-time
+            through Three.js and WebGL.
+          </p>
+          <SlideShow
+            images={[
+              `${BASE_PATH}/freecity/harbor.png`,
+              `${BASE_PATH}/freecity/beach.png`,
+              `${BASE_PATH}/freecity/railway.png`,
+              `${BASE_PATH}/freecity/panorama.png`,
+            ]}
+          />
+
+          <TypographyH3 className="my-4 mt-8">
+            Passion Project & Continuous Learning
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            FREECITY is a long-term passion project that showcases my interest in
+            game development, world-building, real-time graphics, AI systems, and
+            interactive experiences. The project allows me to continuously
+            experiment with new technologies, improve programming skills,
+            optimize performance, and learn advanced concepts in modern game
+            development. Planned features include multiple playable vehicles, a
+            day/night cycle, weather system, police system, economy and
+            currency, missions, interior buildings, and a much larger open world.
+          </p>
         </div>
       );
     },
