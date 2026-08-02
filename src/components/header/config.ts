@@ -19,7 +19,7 @@ const links: Link[] = [
   {
     title: 'Projects',
     href: '/#projects',
-    thumbnail: '/assets/nav-link-previews/projects.png'
+    thumbnail: '/assets/nav-link-previews/projects-v2.png'
   },
   // {
   //   title: 'Skills',

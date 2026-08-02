@@ -255,50 +255,111 @@ export type Project = {
 };
 const projects: Project[] = [
   {
-    id: "f1universe",
-    category: "Interactive Formula 1 Web Experience",
-    title: "F1 Universe",
-    src: "/assets/projects-screenshots/f1universe/landing.png",
-    screenshots: ["landing.png"],
+    id: "freecity",
+    category: "Open-World City Exploration & Driving Game",
+    title: "FREECITY",
+    src: "/assets/projects-screenshots/freecity/landing.png",
+    screenshots: ["landing.png", "downtown.png", "park.png", "harbor.png", "railway.png", "beach.png", "panorama.png", "commercial.png"],
+    videoSrc: "/assets/projects-screenshots/freecity/preview.mp4",
     skills: {
       frontend: [
+        PROJECT_SKILLS.js,
+        PROJECT_SKILLS.threejs,
+        PROJECT_SKILLS.webgl,
         PROJECT_SKILLS.html5,
         PROJECT_SKILLS.css3,
-        PROJECT_SKILLS.js,
       ],
-      backend: [],
+      backend: [
+        PROJECT_SKILLS.blender,
+      ],
     },
-    live: "https://dhruvinpatel06.github.io/F1_Universe/",
-    github: "https://github.com/Dhruvinpatel06/F1_Universe",
+    live: "#",
+    github: "https://github.com/Dhruvinpatel06/Free-City",
     get content() {
       return (
         <div>
           <TypographyP className="font-mono text-2xl text-center">
-            A modern Formula 1 themed website delivering an immersive racing
-            experience through stunning visuals and engaging interactions.
+            A low-poly open-world city exploration game — built from scratch as
+            a personal passion project to learn game development, real-time
+            rendering, AI systems, and interactive world design.
           </TypographyP>
           <TypographyP className="font-mono ">
-            F1 Universe is a modern and responsive web application inspired by
-            the excitement of Formula 1 racing. The project combines premium
-            UI/UX design with interactive animations and smooth navigation to
-            create an engaging experience for motorsport enthusiasts. Built with
-            a strong focus on performance and responsiveness, the website
-            showcases Formula 1 content in a visually appealing way while
-            demonstrating modern frontend development skills and creative design
-            principles.
+            FREECITY is my largest personal game development project, created to
+            explore modern game design and challenge myself beyond traditional
+            web development. The game features a fully explorable low-poly city
+            where players can freely drive vehicles, walk around urban
+            environments, interact with traffic systems, and discover different
+            areas including downtown streets, parks, residential zones,
+            commercial buildings, and scenic landscapes. Rather than focusing on
+            a fixed storyline, FREECITY emphasizes freedom, exploration, and
+            continuous improvement — serving as a long-term learning experience
+            where I experiment with game mechanics, world-building, AI
+            behaviors, rendering techniques, optimization, and user experience.
           </TypographyP>
-          <ProjectsLinks live={this.live} repo={this.github} />
+          <ProjectsLinks repo={this.github} />
 
-          <TypographyH3 className="my-4 mt-8">Key Features</TypographyH3>
+          <div className="flex items-center gap-2 my-4">
+            <span className="inline-flex items-center gap-1.5 text-xs font-mono px-3 py-1 rounded-full border border-yellow-500/30 bg-yellow-500/10 text-yellow-400">
+              🚧 Currently in Active Development
+            </span>
+            <span className="inline-flex items-center gap-1.5 text-xs font-mono px-3 py-1 rounded-full border border-muted-foreground/20 bg-muted/50 text-muted-foreground cursor-not-allowed opacity-60">
+              Live Demo — Coming Soon
+            </span>
+          </div>
+
+          <TypographyH3 className="my-4 mt-8">
+            Open-World Exploration
+          </TypographyH3>
           <p className="font-mono mb-2">
-            Modern Formula 1 inspired UI with a premium dark theme and red-black
-            color palette. Fully responsive across all devices — desktop, tablet,
-            and mobile. Smooth scrolling and animations with interactive sections
-            and navigation. Premium visual effects including speed motion,
-            racing lights, and futuristic dashboard elements. Clean and organized
-            code structure with optimized performance throughout.
+            A large open-world city with free roam exploration, third-person
+            character controller, driveable vehicles, interactive road networks,
+            traffic lights, NPC pedestrians, AI traffic, mini-map navigation,
+            real-time clock, FPS counter, and speedometer. The city includes an
+            urban downtown district, commercial buildings, parks and green areas,
+            mountain environments, detailed roads and sidewalks — all rendered in
+            a clean low-poly art style with performance-optimized rendering.
           </p>
-          <SlideShow images={[`${BASE_PATH}/f1universe/landing.png`]} />
+          <SlideShow
+            images={[
+              `${BASE_PATH}/freecity/downtown.png`,
+              `${BASE_PATH}/freecity/commercial.png`,
+              `${BASE_PATH}/freecity/park.png`,
+            ]}
+          />
+
+          <TypographyH3 className="my-4 mt-8">
+            World Building & Environments
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            The city is continuously expanding with new districts, roads,
+            landmarks, and interactive elements. Current environments include
+            harbors and ports, beach areas with lighthouses, railway stations,
+            mountain scenery, and a full urban downtown — all built with custom
+            low-poly 3D assets created in Blender and rendered in real-time
+            through Three.js and WebGL.
+          </p>
+          <SlideShow
+            images={[
+              `${BASE_PATH}/freecity/harbor.png`,
+              `${BASE_PATH}/freecity/beach.png`,
+              `${BASE_PATH}/freecity/railway.png`,
+              `${BASE_PATH}/freecity/panorama.png`,
+            ]}
+          />
+
+          <TypographyH3 className="my-4 mt-8">
+            Passion Project & Continuous Learning
+          </TypographyH3>
+          <p className="font-mono mb-2">
+            FREECITY is a long-term passion project that showcases my interest in
+            game development, world-building, real-time graphics, AI systems, and
+            interactive experiences. The project allows me to continuously
+            experiment with new technologies, improve programming skills,
+            optimize performance, and learn advanced concepts in modern game
+            development. Planned features include multiple playable vehicles, a
+            day/night cycle, weather system, police system, economy and
+            currency, missions, interior buildings, and a much larger open world.
+          </p>
         </div>
       );
     },
@@ -440,8 +501,8 @@ const projects: Project[] = [
           </p>
           <SlideShow
             images={[
-              `${BASE_PATH}/portfolio/projects.png`,
-              `${BASE_PATH}/portfolio/skills.png`,
+              `${BASE_PATH}/portfolio/projects.png?v=3`,
+              `${BASE_PATH}/portfolio/skills.png?v=3`,
             ]}
           />
 
@@ -458,8 +519,8 @@ const projects: Project[] = [
           </p>
           <SlideShow
             images={[
-              `${BASE_PATH}/portfolio/navbar.png`,
-              `${BASE_PATH}/portfolio/project.png`,
+              `${BASE_PATH}/portfolio/navbar.png?v=3`,
+              `${BASE_PATH}/portfolio/project.png?v=3`,
             ]}
           />
         </div>
@@ -467,111 +528,50 @@ const projects: Project[] = [
     },
   },
   {
-    id: "freecity",
-    category: "Open-World City Exploration & Driving Game",
-    title: "FREECITY",
-    src: "/assets/projects-screenshots/freecity/landing.png",
-    screenshots: ["landing.png", "downtown.png", "park.png", "harbor.png", "railway.png", "beach.png", "panorama.png", "commercial.png"],
-    videoSrc: "/assets/projects-screenshots/freecity/preview.mp4",
+    id: "f1universe",
+    category: "Interactive Formula 1 Web Experience",
+    title: "F1 Universe",
+    src: "/assets/projects-screenshots/f1universe/landing.png",
+    screenshots: ["landing.png"],
     skills: {
       frontend: [
-        PROJECT_SKILLS.js,
-        PROJECT_SKILLS.threejs,
-        PROJECT_SKILLS.webgl,
         PROJECT_SKILLS.html5,
         PROJECT_SKILLS.css3,
+        PROJECT_SKILLS.js,
       ],
-      backend: [
-        PROJECT_SKILLS.blender,
-      ],
+      backend: [],
     },
-    live: "#",
-    github: "https://github.com/Dhruvinpatel06/Free-City",
+    live: "https://dhruvinpatel06.github.io/F1_Universe/",
+    github: "https://github.com/Dhruvinpatel06/F1_Universe",
     get content() {
       return (
         <div>
           <TypographyP className="font-mono text-2xl text-center">
-            A low-poly open-world city exploration game — built from scratch as
-            a personal passion project to learn game development, real-time
-            rendering, AI systems, and interactive world design.
+            A modern Formula 1 themed website delivering an immersive racing
+            experience through stunning visuals and engaging interactions.
           </TypographyP>
           <TypographyP className="font-mono ">
-            FREECITY is my largest personal game development project, created to
-            explore modern game design and challenge myself beyond traditional
-            web development. The game features a fully explorable low-poly city
-            where players can freely drive vehicles, walk around urban
-            environments, interact with traffic systems, and discover different
-            areas including downtown streets, parks, residential zones,
-            commercial buildings, and scenic landscapes. Rather than focusing on
-            a fixed storyline, FREECITY emphasizes freedom, exploration, and
-            continuous improvement — serving as a long-term learning experience
-            where I experiment with game mechanics, world-building, AI
-            behaviors, rendering techniques, optimization, and user experience.
+            F1 Universe is a modern and responsive web application inspired by
+            the excitement of Formula 1 racing. The project combines premium
+            UI/UX design with interactive animations and smooth navigation to
+            create an engaging experience for motorsport enthusiasts. Built with
+            a strong focus on performance and responsiveness, the website
+            showcases Formula 1 content in a visually appealing way while
+            demonstrating modern frontend development skills and creative design
+            principles.
           </TypographyP>
-          <ProjectsLinks repo={this.github} />
+          <ProjectsLinks live={this.live} repo={this.github} />
 
-          <div className="flex items-center gap-2 my-4">
-            <span className="inline-flex items-center gap-1.5 text-xs font-mono px-3 py-1 rounded-full border border-yellow-500/30 bg-yellow-500/10 text-yellow-400">
-              🚧 Currently in Active Development
-            </span>
-            <span className="inline-flex items-center gap-1.5 text-xs font-mono px-3 py-1 rounded-full border border-muted-foreground/20 bg-muted/50 text-muted-foreground cursor-not-allowed opacity-60">
-              Live Demo — Coming Soon
-            </span>
-          </div>
-
-          <TypographyH3 className="my-4 mt-8">
-            Open-World Exploration
-          </TypographyH3>
+          <TypographyH3 className="my-4 mt-8">Key Features</TypographyH3>
           <p className="font-mono mb-2">
-            A large open-world city with free roam exploration, third-person
-            character controller, driveable vehicles, interactive road networks,
-            traffic lights, NPC pedestrians, AI traffic, mini-map navigation,
-            real-time clock, FPS counter, and speedometer. The city includes an
-            urban downtown district, commercial buildings, parks and green areas,
-            mountain environments, detailed roads and sidewalks — all rendered in
-            a clean low-poly art style with performance-optimized rendering.
+            Modern Formula 1 inspired UI with a premium dark theme and red-black
+            color palette. Fully responsive across all devices — desktop, tablet,
+            and mobile. Smooth scrolling and animations with interactive sections
+            and navigation. Premium visual effects including speed motion,
+            racing lights, and futuristic dashboard elements. Clean and organized
+            code structure with optimized performance throughout.
           </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/freecity/downtown.png`,
-              `${BASE_PATH}/freecity/commercial.png`,
-              `${BASE_PATH}/freecity/park.png`,
-            ]}
-          />
-
-          <TypographyH3 className="my-4 mt-8">
-            World Building & Environments
-          </TypographyH3>
-          <p className="font-mono mb-2">
-            The city is continuously expanding with new districts, roads,
-            landmarks, and interactive elements. Current environments include
-            harbors and ports, beach areas with lighthouses, railway stations,
-            mountain scenery, and a full urban downtown — all built with custom
-            low-poly 3D assets created in Blender and rendered in real-time
-            through Three.js and WebGL.
-          </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/freecity/harbor.png`,
-              `${BASE_PATH}/freecity/beach.png`,
-              `${BASE_PATH}/freecity/railway.png`,
-              `${BASE_PATH}/freecity/panorama.png`,
-            ]}
-          />
-
-          <TypographyH3 className="my-4 mt-8">
-            Passion Project & Continuous Learning
-          </TypographyH3>
-          <p className="font-mono mb-2">
-            FREECITY is a long-term passion project that showcases my interest in
-            game development, world-building, real-time graphics, AI systems, and
-            interactive experiences. The project allows me to continuously
-            experiment with new technologies, improve programming skills,
-            optimize performance, and learn advanced concepts in modern game
-            development. Planned features include multiple playable vehicles, a
-            day/night cycle, weather system, police system, economy and
-            currency, missions, interior buildings, and a much larger open world.
-          </p>
+          <SlideShow images={[`${BASE_PATH}/f1universe/landing.png`]} />
         </div>
       );
     },
