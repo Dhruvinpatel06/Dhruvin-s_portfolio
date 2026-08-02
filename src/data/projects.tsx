@@ -501,8 +501,8 @@ const projects: Project[] = [
           </p>
           <SlideShow
             images={[
-              `${BASE_PATH}/portfolio/projects.png?v=3`,
-              `${BASE_PATH}/portfolio/skills.png?v=3`,
+              `${BASE_PATH}/portfolio/projects.png`,
+              `${BASE_PATH}/portfolio/skills.png`,
             ]}
           />
 
@@ -519,8 +519,8 @@ const projects: Project[] = [
           </p>
           <SlideShow
             images={[
-              `${BASE_PATH}/portfolio/navbar.png?v=3`,
-              `${BASE_PATH}/portfolio/project.png?v=3`,
+              `${BASE_PATH}/portfolio/navbar.png`,
+              `${BASE_PATH}/portfolio/project.png`,
             ]}
           />
         </div>

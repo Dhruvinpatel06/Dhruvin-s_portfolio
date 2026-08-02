@@ -59,7 +59,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
                     position: "absolute",
                     inset: 0,
                     backgroundColor: "#0f172a",
-                    backgroundImage: `url("/assets/backgrounds/${project.id}.jpg?v=3")`,
+                    backgroundImage: `url("/assets/backgrounds/${project.id}.jpg")`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
@@ -107,7 +107,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
               <ScrollingPreview
                 src={project.src}
                 alt={project.title}
-                bg={`/assets/backgrounds/${project.id}.jpg?v=3`}
+                bg={`/assets/backgrounds/${project.id}.jpg`}
               />
             )}
             <div className="absolute w-full h-24 bottom-0 left-0 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none z-10">
