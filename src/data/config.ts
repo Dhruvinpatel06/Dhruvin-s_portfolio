@@ -25,7 +25,7 @@ const config = {
   ],
   author: "Dhruvin Patel",
   email: "pateldhruvin2506@gmail.com",
-  site: "https://nareshkhatri.site",
+  site: "https://dhruvinpatel.dev",
 
   // for github stars button
   githubUsername: "Dhruvinpatel06",

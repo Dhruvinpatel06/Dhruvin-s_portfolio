@@ -2,9 +2,9 @@ import { Metadata } from "next";
 import ResumeView from "./resume-view";
 
 export const metadata: Metadata = {
-  title: "Résumé | Naresh Khatri",
+  title: "Résumé | Dhruvin Patel",
   description:
-    "Résumé of Naresh Khatri — Senior Full-Stack Engineer. View online or download the PDF.",
+    "Résumé of Dhruvin Patel — Full-Stack Developer & CSE Student. View online or download the PDF.",
 };
 
 export default function ResumePage() {

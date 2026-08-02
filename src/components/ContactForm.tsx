@@ -56,7 +56,7 @@ const ContactForm = () => {
       }
       toast({
         title: "Thank you!",
-        description: "I'll get back to you as soon as possible.",
+        description: "Message sent successfully! I'll get back to you soon.",
         variant: "default",
         className: cn("top-0 mx-auto flex fixed md:top-4 md:right-4"),
       });
