@@ -41,3 +41,4 @@ src/app/(components)
 public/assets/projects-screenshots/raw/
 
 .vercel
+.env*
