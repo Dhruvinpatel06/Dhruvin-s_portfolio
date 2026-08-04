@@ -1,236 +1,209 @@
 <div align="center">
 
-# ✦ Dhruvin's Portfolio ✦
+  # ✦ ✨ DHRUVIN'S 3D PORTFOLIO ✨ ✦
 
-### *An immersive 3D developer portfolio with interactive animations, cinematic scroll effects, and a space-themed aesthetic*
+  <p align="center">
+    <strong>An immersive, ultra-responsive 3D web experience with interactive WebGL keycaps, GSAP animations, sound FX, secret easter eggs & space physics! 🚀✨</strong>
+  </p>
 
-[![Next.js](https://img.shields.io/badge/Next.js_16-000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React_19-61DAFB?style=for-the-badge&logo=react&logoColor=000)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://typescriptlang.org/)
-[![Tailwind](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-[![Vercel](https://img.shields.io/badge/Deployed_on_Vercel-000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
+  <br />
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Dhruvinpatel06/Dhruvin-s_portfolio)
+  [![Live Portfolio](https://img.shields.io/badge/🌐_Live_Demo-dhruvinpatel.dev-8B5CF6?style=for-the-badge&logoColor=white)](https://dhruvinpatel.dev)
+  [![GitHub Stars](https://img.shields.io/github/stars/Dhruvinpatel06/Dhruvin-s_portfolio?style=for-the-badge&color=FFD700&logo=github)](https://github.com/Dhruvinpatel06/Dhruvin-s_portfolio)
+  [![Vercel Status](https://img.shields.io/badge/Deployed_on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
+
+  <br />
+
+  [![Next.js 16](https://img.shields.io/badge/Next.js_16-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
+  [![React 19](https://img.shields.io/badge/React_19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+  [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+  [![Tailwind CSS](https://img.shields.io/badge/Tailwind_v3.4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+  [![Spline 3D](https://img.shields.io/badge/Spline_3D-FF4081?style=for-the-badge&logo=spline&logoColor=white)](https://spline.design/)
+  [![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge&logo=greensock&logoColor=black)](https://greensock.com/gsap/)
 
 </div>
 
 ---
 
-## ⚡ Overview
+## 🌟 Overview & Highlights
 
-A jaw-dropping developer portfolio packed with interactive 3D animations, buttery smooth transitions, and a space-themed aesthetic. It features a **fully interactive 3D keyboard** where each keycap represents a skill — hover or press to reveal details with sound effects. Every section is scroll-animated, theme-aware, and responsive across all devices.
+Welcome to **Dhruvin's 3D Portfolio**! Built from scratch using **Next.js 16 (App Router)**, **React 19**, and **Spline 3D**, this portfolio is packed with playful interactive elements, buttery smooth scroll physics, custom audio feedback, and high-performance WebGL animations.
 
----
-
-## ✨ Features
-
-| Feature | Description |
-|---|---|
-| 🎹 **Interactive 3D Keyboard** | Custom Spline keyboard — each keycap reveals skill details on hover/press with sound effects |
-| 🎬 **Cinematic Animations** | GSAP + Framer Motion powered scroll, hover, and reveal animations |
-| 🌌 **Space Theme** | Floating particles on a dark canvas for an immersive cosmic vibe |
-| 🌗 **Light & Dark Mode** | Full theme support with smooth transitions |
-| 📱 **Fully Responsive** | Optimized for desktop, tablet, and mobile |
-| 📬 **Contact Form** | Email delivery via Resend with rate limiting and Zod validation |
-| 🖼️ **Project Showcase** | Scrolling preview cards with auto-panning screenshots and slideshow support |
-| 📊 **Analytics** _(optional)_ | Umami analytics integration |
-| 🔴 **Live Cursors** _(optional)_ | See other visitors' cursors in realtime |
-| 💬 **Live Chat** _(optional)_ | Chat between visitors in realtime |
+### 💖 Why You'll Love It:
+* 🎹 **Interactive 3D Keyboard Scene:** A dynamic Spline WebGL mechanical keyboard that follows your scroll, rotates in 3D space, and lets you physically press or hover keys to discover developer skills!
+* 🐱 **Bongo Cat Cameo:** An animated Bongo Cat that jams along while you browse the Projects section!
+* 🌈 **Nyan Cat Flying Spawner:** Press the `N` key on your keyboard to spawn rainbow Nyan Cats flying across your viewport!
+* 🕵️ **DevTools Portal:** Open your browser console to discover secret interactive commands and magic tricks!
+* 🎯 **Radial Context Menu:** Right-click anywhere to trigger a customized, circular glassmorphism menu with dynamic shockwave ripples!
+* 🖱️ **Elastic Jelly Cursor:** A smooth custom cursor with spring-physics morphing on hoverable elements.
+* 🌌 **Particle Universe Canvas:** Mouse-reactive interactive space particles with magnetism and adaptive device rendering.
+* ⚡ **Performance & Accessibility Engine:** Automatic reduction of motion / 3D based on OS `prefers-reduced-motion` and mobile `Data Saver` mode.
+* 🟢 **Real-Time Multiplayer:** Live visitor presence counter & real-time remote cursor tracking via WebSockets!
 
 ---
 
-## 🛠️ Tech Stack
+## 🎹 The Interactive 3D Keyboard System
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│  Framework    │  Next.js 16 · React 19 · TypeScript     │
-│  Styling      │  Tailwind CSS · Shadcn UI · Aceternity  │
-│  Animation    │  GSAP · Framer Motion · Lenis           │
-│  3D Engine    │  Spline Runtime                         │
-│  Email        │  Resend                                 │
-│  Validation   │  Zod                                    │
-│  Theming      │  next-themes                            │
-│  Analytics    │  Umami (optional)                       │
-└─────────────────────────────────────────────────────────┘
+                         ┌───────────────────────────┐
+                         │   Spline 3D Scene (.spline)│
+                         └─────────────┬─────────────┘
+                                       │
+                ┌──────────────────────┴──────────────────────┐
+                ▼                                             ▼
+    【 Section Scroll Triggers 】                  【 Interactive Keycaps 】
+    GSAP ScrollTrigger scrubs keyboard          Press key or hover keycaps to:
+    transform across 5 states:                  • Trigger press/release audio 🔊
+    • Hero: Right float & Yoyo spin             • Update 3D heading & desc 📝
+    • Skills: Centered interactive focus        • Highlight tech stack brand icon 🎨
+    • Projects: Inverted + Bongo Cat            
+    • Contact: Floating keycaps explosion!      
 ```
 
 ---
 
-## 🏗️ Featured Projects
+## 🐰 Secret Easter Eggs & Magic Tricks 🪄
 
-| # | Project | Category | Stack |
-|---|---------|----------|-------|
-| 1 | **F1 Universe** | Interactive Formula 1 Web Experience | HTML5 · CSS3 · JavaScript |
-| 2 | **BrandMirror** | AI-Powered Brand Intelligence Platform | React · Vite · FastAPI · Groq |
-| 3 | **Gumbalup** | Real-time Quiz Platform | Next.js · tRPC · PartyKit · PostgreSQL |
-| 4 | **Waku** | Dynamic Image Rendering Platform | Next.js · tRPC · Satori · Turborepo |
-| 5 | **CareerFlow** | AI-Powered Career & Recruitment Platform | Django · Python · SQLite · Bootstrap |
-| 6 | **NexaFlow AI** | AI-Powered Productivity & Workflow Platform | Next.js · React · Tailwind · Motion |
-| 7 | **L&K Store** | Full Stack E-Commerce Website | JavaScript |
+| Easter Egg | How to Trigger | What Happens 💫 |
+|---|---|---|
+| 🌈 **Nyan Cat Army** | Press the **`N`** key anywhere | Flying Nyan Cats zoom across your screen with a counter! 🐱✨ |
+| 🕵️ **DevTools Console** | Open `F12` / Inspect Element | Secret formatted console greeting & magic trigger hint! 🧙‍♂️ |
+| 🎩 **Name Magic** | Type `dhruvin` in Console & Enter | Triggers interactive console easter egg messages! |
+| 🎯 **Radial Right-Click** | Right-click anywhere on homepage | Custom radial menu opens with sound & shockwave animation! |
+| 💬 **Funny Theme Toast** | Click the Light/Dark mode toggle | Emits hilarious toasts about lumens & sunglasses! 🕶️ |
+| 🥹 **Playful Tooltips** | Hover "Dhruvin Patel" or "Hire Me" | Displays secret playful hover messages! |
 
 ---
 
-## 🚀 Getting Started
+## 🛠️ Tech Stack & Architecture
+
+```
+├── ⚡ Core Framework   : Next.js 16 (App Router) · React 19 · TypeScript
+├── 🎨 Styling          : Tailwind CSS · SASS Modules · Shadcn UI · CSS Variables
+├── 🎬 Motion & 3D      : Spline Runtime · GSAP ScrollTrigger · Framer Motion · Lenis
+├── 📬 Backend & Email  : Next.js Server Actions · Nodemailer (Gmail SMTP) · Zod
+├── 🟢 Realtime         : Socket.IO Client · Custom WebSocket Server
+└── 📊 Analytics        : Google Analytics 4 (@next/third-parties) · Umami Analytics
+```
+
+---
+
+## 💻 Featured Projects
+
+| Project | Category | Tech Highlights | Demo / Source |
+|---|---|---|---|
+| 🏎️ **FREECITY** | 3D Open-World Driving Game | Three.js · WebGL · Blender | [GitHub](https://github.com/Dhruvinpatel06/Free-City) |
+| 🔍 **BrandMirror** | AI Brand Intelligence Platform | React · FastAPI · Groq LLM | [LinkedIn Demo](https://www.linkedin.com/posts/dhruvin-patel-14a741310_ai-llm-fastapi-ugcPost-7469958589051453440-rMUK/) · [GitHub](https://github.com/Dhruvinpatel06/BrandMirror) |
+| 💼 **Dhruvin's Portfolio**| Interactive 3D Web Experience | Next.js 16 · Spline · GSAP | [Live Site](https://dhruvinpatel.dev) · [GitHub](https://github.com/Dhruvinpatel06/Dhruvin-s_portfolio) |
+| 🏎️ **F1 Universe** | Formula 1 Web Experience | HTML5 · CSS3 · JavaScript | [Live Demo](https://dhruvinpatel06.github.io/F1_Universe/) · [GitHub](https://github.com/Dhruvinpatel06/F1_Universe) |
+| 👔 **CareerFlow** | AI Recruitment Platform | Django · Python · SQLite | [Live Demo](https://career-flow-pi.vercel.app) · [GitHub](https://github.com/Dhruvinpatel06/CareerFlow) |
+| ⚡ **NexaFlow AI** | Autonomous AI OS SaaS | Next.js 14 · Tailwind v4 · Motion | [Live Demo](https://nexaflow-ai-kappa.vercel.app) · [GitHub](https://github.com/Dhruvinpatel06/NexaFlow_AI) |
+| 🛒 **L&K Store** | E-Commerce Platform | JavaScript · Responsive UI | [Live Demo](https://dhruvinpatel06.github.io/L-K_store/) · [GitHub](https://github.com/Dhruvinpatel06/L-K_store) |
+
+---
+
+## 🚀 Local Development & Setup
 
 ### Prerequisites
-
-- **Node.js** v18+
-- **pnpm** (recommended), npm, or yarn
+* **Node.js** (v18.0.0 or higher)
+* **npm** or **pnpm** or **yarn**
 
 ### Quick Start
 
 ```bash
 # 1. Clone the repository
 git clone https://github.com/Dhruvinpatel06/Dhruvin-s_portfolio.git
+
+# 2. Navigate to project folder
 cd Dhruvin-s_portfolio
 
-# 2. Install dependencies
-pnpm install
+# 3. Install dependencies
+npm install
 
-# 3. Set up environment variables
+# 4. Configure Environment Variables
 cp .env.example .env.local
 
-# 4. Start the development server
-pnpm dev
+# 5. Launch the local dev server
+npm run dev
 ```
 
-Open **[http://localhost:3000](http://localhost:3000)** and see the magic ✨
-
-### Environment Variables
-
-| Variable | Required | Description |
-|---|:---:|---|
-| `RESEND_API_KEY` | ✅ | API key from [Resend](https://resend.com) for the contact form |
-| `NEXT_PUBLIC_WS_URL` | ❌ | WebSocket server URL for realtime features (cursors, chat, presence) |
-| `UMAMI_DOMAIN` | ❌ | Umami analytics script URL |
-| `UMAMI_SITE_ID` | ❌ | Umami website ID |
+Visit `http://localhost:3000` in your browser to view the application! 🎉
 
 ---
 
-## 📁 Project Structure
+## 🔐 Environment Variables Configuration
+
+Create a `.env.local` file in your root folder:
+
+```env
+# Required — Contact Form Gmail Credentials
+GMAIL_USER=your_email@gmail.com
+GMAIL_APP_PASSWORD=your_gmail_app_password
+
+# Optional — Google Analytics 4
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+
+# Optional — Realtime Multiplayer WebSockets
+NEXT_PUBLIC_WS_URL=https://your-websocket-server.com
+
+# Optional — Umami Analytics
+UMAMI_DOMAIN=https://analytics.example.com/script.js
+UMAMI_SITE_ID=your-site-id
+```
+
+---
+
+## 📁 Directory Structure Overview
 
 ```
 src/
-├── app/                        # Next.js App Router pages
-│   ├── api/send/               # Contact form email API route
-│   └── page.tsx                # Main portfolio page
-│
+├── app/
+│   ├── api/send/route.ts        # Contact form email API route with rate-limiting & Zod
+│   ├── layout.tsx               # Root layout (Fonts, GA4, Providers, Metadata)
+│   ├── page.tsx                 # Main Page assembling all interactive sections
+│   └── resume/                  # Interactive Résumé page with Google Drive PDF Viewer
 ├── components/
-│   ├── sections/               # Page sections (hero, about, skills, experience, projects, contact)
-│   ├── footer/                 # Footer component and config
-│   ├── header/                 # Navigation header with animated menu
-│   ├── animated-background.tsx # 3D keyboard scene controller
-│   └── ContactForm.tsx         # Contact form with validation
-│
+│   ├── animated-background.tsx  # 🎹 3D Keyboard Spline & GSAP ScrollTrigger engine
+│   ├── Particles.tsx            # Mouse-reactive particle canvas
+│   ├── ContactForm.tsx          # Zod validated contact form
+│   ├── easter-eggs.tsx          # DevTools detector & magic triggers
+│   ├── nyan-cat.tsx             # 🌈 Flying Nyan Cat spawner
+│   ├── radial-menu/             # Custom right-click radial context menu
+│   └── sections/                # Hero, Skills, Experience, Projects, Contact
 ├── data/
-│   ├── config.ts               # Site-wide configuration (name, socials, email)
-│   ├── constants.ts            # Skills, experience, and keyboard data
-│   └── projects.tsx            # Project cards data and content
-│
-└── public/
-    └── assets/                 # Images, OG image, backgrounds, screenshots
+│   ├── config.ts                # Author details, SEO metadata, socials
+│   ├── constants.ts             # 25 Skills, Work Experience timeline & Gen-Z captions
+│   └── projects.tsx             # Project cards data, screenshots & FloatingDock stack
+└── hooks/
+    └── use-perf-profile.tsx     # 🧠 Adaptive Performance & Reduced-Motion profile
 ```
 
 ---
 
-## 🎨 Customization
+## ☁️ Deployment
 
-All personal info is centralized in **[`src/data/config.ts`](src/data/config.ts)**:
-
-```ts
-const config = {
-  title: "Dhruvin Patel | Full-Stack Developer",
-  author: "Dhruvin Patel",
-  email: "pateldhruvin2506@gmail.com",
-  social: {
-    twitter: "https://x.com/PatelDhruvin_",
-    linkedin: "https://www.linkedin.com/in/dhruvin-patel-14a741310/",
-    instagram: "https://www.instagram.com/dhruvinpatel_25/",
-    github: "https://github.com/Dhruvinpatel06",
-  },
-};
-```
-
-### Key Files to Customize
-
-| File | What to Change |
-|---|---|
-| `src/data/projects.tsx` | Projects, screenshots, descriptions, and tech stacks |
-| `src/data/constants.ts` | Skills list (name, description, icon) and work experience |
-| `public/assets/` | Images, OG image, backgrounds, and project screenshots |
-
----
-
-## ⌨️ Updating the 3D Keyboard Skills
-
-The 3D keyboard keycaps are baked into a Spline file. To update:
-
-1. **Import** the `public/assets/skills-keyboard.spline` file into [Spline](https://spline.design/)
-2. **Unhide** the keycap objects you want to edit
-3. **Update** the logo images on each keycap to your new skill icons
-4. **Rename** each keycap object to match the skill's `name` field in `src/data/constants.ts`
-5. **Hide** all keycap objects again
-6. **Export** the scene and overwrite `public/assets/skills-keyboard.spline`
-
-> [!IMPORTANT]
-> The `SkillNames` enum, `SKILLS` record, and the Spline keycap names must all stay in sync for keyboard interactions to work correctly.
-
----
-
-## 🔌 Realtime Features *(Optional)*
-
-The portfolio supports optional realtime features powered by a separate backend API:
-
-| Feature | Description |
-|---|---|
-| 🖱️ **Live Cursors** | See other visitors' cursors in realtime |
-| 👥 **Online Presence** | Shows who's currently on the site |
-| 💬 **Live Chat** | Chat between visitors |
-
-These features activate automatically when `NEXT_PUBLIC_WS_URL` is set. Without it, the portfolio works perfectly as a static site.
-
-> [!NOTE]
-> The backend API is **not open source**. This is intentional to keep the live experience unique.
-
----
-
-## 🚀 Deployment
+This project is optimized for 1-click deployment on **Vercel**:
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Dhruvinpatel06/Dhruvin-s_portfolio)
 
-This site is deployed on **Vercel**. To deploy your own:
-
-1. Push your code to a GitHub repository
-2. Connect the repository to [Vercel](https://vercel.com)
-3. Add your environment variables (`RESEND_API_KEY`, etc.) in the Vercel dashboard
-4. Vercel handles the rest — automatic deployments on every push
+1. Push code to your GitHub repo.
+2. Import project into Vercel.
+3. Set Environment variables (`GMAIL_USER`, `GMAIL_APP_PASSWORD`, etc.).
+4. Click **Deploy**! 🚀
 
 ---
 
-## 🤝 Contributing
+## 💖 Contributing & Feedback
 
-Contributions are welcome! If you'd like to improve this project:
-
-1. **Fork** the repository
-2. **Create** your feature branch (`git checkout -b feature/amazing-feature`)
-3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
-4. **Push** to the branch (`git push origin feature/amazing-feature`)
-5. **Open** a Pull Request
-
----
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
+Contributions, issues, and feature requests are welcome!  
+Feel free to check the [issues page](https://github.com/Dhruvinpatel06/Dhruvin-s_portfolio/issues) if you have any ideas or feedback.
 
 ---
 
 <div align="center">
 
-**Built with ❤️ by [Dhruvin Patel](https://github.com/Dhruvinpatel06)**
+  **Crafted with ❤️ by [Dhruvin Patel](https://github.com/Dhruvinpatel06)**
 
-If you use this portfolio, a credit or link back to the [original repo](https://github.com/Dhruvinpatel06/Dhruvin-s_portfolio) would be much appreciated ❤️
-
-⭐ **Star this repo if you found it helpful!** ⭐
+  If you like this project, please give it a ⭐ on GitHub! It means a lot! 🥰
 
 </div>
