@@ -93,6 +93,7 @@ const ExperienceCard = ({
                   <img
                     src={skill.icon}
                     alt={skill.label}
+                    loading="lazy"
                     className="w-3.5 h-3.5 object-contain opacity-80"
                   />
                   {skill.label}

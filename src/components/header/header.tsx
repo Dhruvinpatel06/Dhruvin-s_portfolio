@@ -28,8 +28,6 @@ const Header = ({ loader }: HeaderProps) => {
       )}
       style={{
         background: isActive ? "hsl(var(--background) / .8)" : "transparent",
-        // backgroundImage:
-        //   "linear-gradient(0deg, rgba(0, 0, 0, 0), rgb(0, 0, 0))",
       }}
       initial={{
         y: -80,
@@ -42,16 +40,9 @@ const Header = ({ loader }: HeaderProps) => {
         duration: 0.8,
       }}
     >
-      {/* <div
-        className="absolute inset-0 "
-        style={{
-          mask: "linear-gradient(rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 12.5%)",
-        }}
-      >
-      </div> */}
       <div className={cn(styles.bar, "flex items-center justify-between")}>
         <Link href="/" className="flex items-center justify-center">
-          <Button variant={"link"} className="text-md">
+          <Button variant={"link"} className="text-xs">
             {config.author}
           </Button>
         </Link>

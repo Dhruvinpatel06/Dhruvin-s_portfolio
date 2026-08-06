@@ -1,6 +1,7 @@
-import Spline from "@splinetool/react-spline";
-import type { Metadata } from "next";
 import React, { Suspense } from "react";
+import type { Metadata } from "next";
+
+const Spline = React.lazy(() => import("@splinetool/react-spline"));
 
 export const metadata: Metadata = {
   title: "404 - Page Not Found",

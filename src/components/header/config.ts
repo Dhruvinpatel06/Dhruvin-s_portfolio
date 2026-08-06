@@ -21,17 +21,6 @@ const links: Link[] = [
     href: '/#projects',
     thumbnail: '/assets/nav-link-previews/projects-v2.png'
   },
-  // {
-  //   title: 'Skills',
-  //   href: '/skills',
-  //   thumbnail: '/assets/nav-link-previews/skills.png'
-  // },
-  // {
-  //   title: 'Testimonials',
-  //   href: '/testimonials',
-  //   thumbnail: '/assets/nav-link-previews/testimonials.png'
-  // },
-
   {
     title: 'Contact',
     href: '/#contact',

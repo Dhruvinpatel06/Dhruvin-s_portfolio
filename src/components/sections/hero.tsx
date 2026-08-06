@@ -56,7 +56,7 @@ const HeroSection = () => {
                         )}
                       >
                         {config.author.split(" ")[0]}
-                        <br className="md:block hiidden" />
+                        <br className="md:block hidden" />
                         {config.author.split(" ")[1]}
                       </h1>
                     </TooltipTrigger>
@@ -68,7 +68,7 @@ const HeroSection = () => {
                     </TooltipContent>
                   </Tooltip>
                 </BlurIn>
-                {/* <div className="md:block hidden bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0 w-screen h-px animate-fade-right animate-glow" /> */}
+
                 <BlurIn delay={1.2}>
                   <p
                     className={cn(
@@ -86,7 +86,9 @@ const HeroSection = () => {
                     "https://drive.google.com/drive/folders/1Ifrs2NQjBC4CtWuWRg9R8vAjUviZhyD-"
                   }
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="flex-1"
+                  aria-label="View Resume"
                 >
                   <BoxReveal delay={2} width="100%" >
                     <Button className="flex items-center gap-2 w-full">
@@ -115,6 +117,8 @@ const HeroSection = () => {
                     <Link
                       href={config.social.twitter}
                       target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Follow on X (Twitter)"
                     >
                       <Button variant={"outline"}>
                         <SiX size={24} />
@@ -123,7 +127,9 @@ const HeroSection = () => {
                     <Link
                       href={config.social.github}
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="cursor-can-hover"
+                      aria-label="View GitHub profile"
                     >
                       <Button variant={"outline"}>
                         <SiGithub size={24} />
@@ -132,7 +138,9 @@ const HeroSection = () => {
                     <Link
                       href={config.social.linkedin}
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="cursor-can-hover"
+                      aria-label="Connect on LinkedIn"
                     >
                       <Button variant={"outline"}>
                         <SiLinkedin size={24} />
