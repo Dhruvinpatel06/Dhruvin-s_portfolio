@@ -11,7 +11,7 @@ import { usePreloader } from "./preloader";
 import { useTheme } from "next-themes";
 import { Section, getKeyboardState } from "./animated-background-config";
 import { useSounds } from "./realtime/hooks/use-sounds";
-import { usePerfProfile } from "@/hooks/use-perf-profile";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -296,8 +296,6 @@ const KeyboardScene = ({ maxDpr }: { maxDpr: number }) => {
     return () => {
       bongoAnimationRef.current?.stop()
       keycapAnimationsRef.current?.stop()
-      // Kill the section ScrollTriggers so they don't orphan when the scene
-      // unmounts (e.g. toggling reduced motion) and fire on the disposed app.
       timelines.forEach((tl) => {
         tl.scrollTrigger?.kill();
         tl.kill();
@@ -494,23 +492,9 @@ const KeyboardScene = ({ maxDpr }: { maxDpr: number }) => {
   );
 };
 
-/**
- * Gate the heavy WebGL scene behind device/preference detection.
- *
- * The gate lives here in the parent (not inside KeyboardScene) on purpose: when
- * 3D is disabled — e.g. the user toggles reduced motion — KeyboardScene fully
- * UNMOUNTS, tearing down its Spline app, GSAP tweens, ScrollTriggers and reveal
- * state. Re-enabling remounts it from a clean slate. (Gating with an internal
- * early-return instead kept the component mounted, so it came back with stale
- * `keyboardRevealed` state and never re-initialised the keycaps.)
- *
- * Waiting for `ready` also avoids a flash-mount that would fetch the heavy
- * runtime chunk + scene before detection has run; the Preloader bypasses its
- * splash when 3D is disabled.
- */
 const AnimatedBackground = () => {
-  const { disable3D, maxDpr, ready } = usePerfProfile();
-  if (!ready || disable3D) return null;
+  const isMobile = useMediaQuery("(max-width: 767px)");
+  const maxDpr = isMobile ? 1.5 : 2;
   return <KeyboardScene maxDpr={maxDpr} />;
 };
 

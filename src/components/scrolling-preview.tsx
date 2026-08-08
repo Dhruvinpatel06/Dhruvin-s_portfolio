@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
 // Pan speed (CSS px/sec). Duration is derived from this so every card scrolls
@@ -38,7 +38,6 @@ const ScrollingPreview = ({
   alt: string;
   bg?: string;
 }) => {
-  const reduceMotion = useReducedMotion();
   const viewportRef = useRef<HTMLDivElement>(null);
   const [scrollPx, setScrollPx] = useState(0);
   const [bgReady, setBgReady] = useState(false);
@@ -83,7 +82,7 @@ const ScrollingPreview = ({
   }, [bg]);
 
   const scrolls = scrollPx > 0;
-  const animate = !reduceMotion && scrolls;
+  const animate = scrolls;
 
   const pan = scrollPx / PAN_SPEED;
   const total = pan * 2 + PAUSE * 2;

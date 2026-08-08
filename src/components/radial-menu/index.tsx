@@ -79,7 +79,6 @@ export default function RadialMenu() {
         origin: { x: normalizedX, y: normalizedY },
         shapes: [emojiShape],
         scalar,
-        disableForReducedMotion: true,
         zIndex: 9999,
         startVelocity: 15 + int * 30 + Math.random() * 10,
         gravity: 0.6 + Math.random() * 0.4,

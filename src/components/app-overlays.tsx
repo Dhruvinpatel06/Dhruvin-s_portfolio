@@ -6,31 +6,27 @@ import RemoteCursors from "@/components/realtime/remote-cursors";
 import EasterEggs from "@/components/easter-eggs";
 import ElasticCursor from "@/components/ui/ElasticCursor";
 import RadialMenu from "@/components/radial-menu/index";
-import MotionNudge from "@/components/motion-nudge";
-import { usePerfProfile } from "@/hooks/use-perf-profile";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 export default function AppOverlays() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   // The résumé route disables the elastic cursor (keeps the particle bg).
   const isResume = pathname?.startsWith("/resume") ?? false;
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
-  const { particleCount, maxDpr, disableDecorative } = usePerfProfile();
+  const particleCount = isMobile ? 30 : 100;
 
   return (
     <>
-      {particleCount > 0 && (
-        <Particles
-          className="fixed inset-0 -z-10 animate-fade-in"
-          quantity={particleCount}
-          maxDpr={maxDpr}
-        />
-      )}
+      <Particles
+        className="fixed inset-0 -z-10 animate-fade-in"
+        quantity={particleCount}
+      />
       {isHome && <RemoteCursors />}
       <EasterEggs />
-      {!isResume && !disableDecorative && <ElasticCursor />}
+      {!isResume && <ElasticCursor />}
       {isHome && <RadialMenu />}
-      {isHome && <MotionNudge />}
     </>
   );
 }
