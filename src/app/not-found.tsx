@@ -1,7 +1,5 @@
-import React, { Suspense } from "react";
 import type { Metadata } from "next";
-
-const Spline = React.lazy(() => import("@splinetool/react-spline"));
+import NotFoundScene from "./not-found-scene";
 
 export const metadata: Metadata = {
   title: "404 - Page Not Found",
@@ -9,13 +7,7 @@ export const metadata: Metadata = {
 };
 
 const NotFoundPage = () => {
-  return (
-    <>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Spline scene="/assets/404.spline" style={{ height: "100vh" }} />
-      </Suspense>
-    </>
-  );
+  return <NotFoundScene />;
 };
 
 export default NotFoundPage;

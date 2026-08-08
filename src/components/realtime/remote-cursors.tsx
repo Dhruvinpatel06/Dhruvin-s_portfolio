@@ -10,9 +10,6 @@ import { AnimatePresence, motion } from "motion/react";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { useLenis } from "@/lib/lenis";
 
-// TODO: add clicking animation
-// TODO: listen to socket disconnect
-
 // Space (px) to keep clear at the right edge so a clamped cursor's pointer
 // glyph and avatar pill (which extend right of x) stay on-screen.
 const CURSOR_EDGE_RESERVE = 56;
@@ -226,11 +223,9 @@ const Cursor = ({
         lastMsgContent.slice(0, 30) + (lastMsgContent.length > 30 ? "..." : "");
       const timeToRead = Math.max(4000, Math.max(textSlice.length * 100, 1000));
       setMsgText(textSlice);
-      // setShowText(true);
       const t = setTimeout(() => {
         setMsgText("");
         clearTimeout(t);
-        // setShowText(false);
       }, timeToRead);
     }
   }, [msgs]);
